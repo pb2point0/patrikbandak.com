@@ -394,3 +394,159 @@ h2 {
     text-align: left;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
+
+.section-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.section-nav a {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+.section-nav a:hover {
+  opacity: 0.65;
+}
+
+.section-nav a:active {
+  transform: translateY(2px) scale(0.97);
+}
+
+.experience-subsection,
+.education-section {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid currentColor;
+}
+
+.section-heading {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  font-weight: 700;
+}
+
+.projects-hero {
+  padding: clamp(4rem, 9vw, 8rem) 0 clamp(4rem, 7vw, 6rem);
+}
+
+.projects-heading h1 {
+  max-width: none;
+  margin: 0;
+}
+
+.projects-heading h1 span {
+  display: block;
+}
+
+.projects-intro {
+  grid-column: 2;
+  max-width: 42rem;
+  margin-top: 2rem;
+}
+
+.projects-intro p {
+  margin: 0;
+}
+
+.projects-intro p + p {
+  margin-top: 1rem;
+}
+
+
+/* PROJECTS */
+
+.projects-list {
+  padding-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+.project {
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0;
+  border-top: 1px solid currentColor;
+}
+
+.project:last-child {
+  border-bottom: 1px solid currentColor;
+}
+
+.project-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-number,
+.project-status {
+  margin: 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.project-status {
+  opacity: 0.6;
+  text-align: right;
+}
+
+.project h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  line-height: 1;
+}
+
+.project-description {
+  max-width: 680px;
+  margin: 0 0 2rem;
+}
+
+.project-link {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition:
+    transform 0.1s ease,
+    opacity 0.1s ease;
+}
+
+.project-link:hover {
+  opacity: 0.65;
+}
+
+.project-link:active {
+  transform: translateY(2px);
+}
+
+.project-link-disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.project-link-disabled:hover {
+  opacity: 0.45;
+}
+
+.project-link-disabled:active {
+  transform: none;
+}
+
+
+@media (max-width: 600px) {
+  .project-topline {
+    align-items: flex-start;
+  }
+
+  .project-description {
+    max-width: none;
+  }
+}
