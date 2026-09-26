@@ -1,176 +1,107 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Projects by Patrik Bandak.">
-    <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" type="image/png" href="/assets/favicon/favicon.png">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Projects by Patrik Bandak.">
+  <meta name="theme-color" content="#faf9f6">
 
-    <title>Projects — Patrik Bandak</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
-      rel="stylesheet"
-    >
-    <link rel="stylesheet" href="/styles.css">
-  </head>
+  <title>Projects — Patrik Bandak</title>
 
-  <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+  <!-- Font preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <div class="page-shell">
-      <header class="site-header">
-        <a class="site-name" href="/">Patrik Bandak</a>
+  <!-- Site Styles -->
+  <link rel="stylesheet" href="/styles.css">
 
-        <nav class="site-nav" aria-label="Primary navigation">
-          <a href="/about/">About</a>
-          <a href="/experience/">Experience</a>
-          <a href="/projects/" aria-current="page">Projects</a>
-          
-          <a href="/contact/">Contact</a>
-        </nav>
+  <!-- Shared Components -->
+  <script src="/js/components.js" defer></script>
+</head>
+
+<body>
+  <!-- Accessibility -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <div class="page-shell">
+
+    <!-- Site Header -->
+    <div id="site-header"></div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="page-content">
+
+      <!-- Projects Intro -->
+      <header class="page-heading projects-heading">
+        <p class="eyebrow">Projects</p>
+
+        <h1>
+          <span>Learning by building.</span>
+        </h1>
+
+        <div class="projects-intro">
+          <p>
+            I mostly build these things to learn how they work.
+            APIs, databases, authentication, backend systems, all the stuff
+            I wanted to get better at by actually using it.
+          </p>
+        </div>
       </header>
 
-      <main id="main-content" class="page-content">
-        <header class="page-heading projects-heading">
-          <p class="eyebrow">Projects</p>
+      <!-- Project List -->
+      <div class="project-list">
 
-          <h1>
-            <span>Learning by building.</span>
-          </h1>
+        <!-- Friendlyhood -->
+        <article class="project-entry">
+          <div>
+            <p class="eyebrow">Live · Still building</p>
 
-          <div class="projects-intro">
+            <h2>Friendlyhood</h2>
+
             <p>
-             I mostly build these things to learn how they work.
-              APIs, databases, authentication, backend systems, all the stuff I wanted to get better at by actually using it.
+              A neighborhood comparison tool I started while exploring a
+              move to Berlin. It became a much larger exercise in data
+              pipelines, scoring methodology, APIs, geographic data, and
+              application architecture.
             </p>
           </div>
-        </header>
 
-        <div class="project-list">
-          <article class="project-entry">
-            <div>
-              <p class="eyebrow">Live · Still building</p>
+          <p class="project-status">
+            <a href="https://friendlyhood.patrikbandak.com/" target="_blank" rel="noopener noreferrer">
+              Visit Friendlyhood ↗
+            </a>
+          </p>
+        </article>
 
-              <h2>Friendlyhood</h2>
+        <!-- Scheduler -->
+        <article class="project-entry">
+          <div>
+            <p class="eyebrow">Work in progress</p>
 
-              <p>
-                A neighborhood comparison tool I started while exploring a
-                move to Berlin. It became a much larger exercise in data
-                pipelines, scoring methodology, APIs, geographic data, and
-                application architecture.
-              </p>
-            </div>
+            <h2>Scheduler</h2>
 
-            <p class="project-status">
-              <a
-                href="https://friendlyhood.patrikbandak.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Visit Friendlyhood ↗
-              </a>
+            <p>
+              A publishing platform for running positive-news projects. I
+              started it partly to simplify the workflow, and partly to get
+              much more comfortable with APIs, authentication, databases,
+              serverless backends, and production integrations.
             </p>
-          </article>
+          </div>
 
-          <article class="project-entry">
-            <div>
-              <p class="eyebrow">Work in progress</p>
+          <p class="project-status">Coming soon</p>
+        </article>
 
-              <h2>Scheduler</h2>
+      </div>
+    </main>
 
-              <p>
-                A publishing platform for running positive-news projects. I
-                started it partly to simplify the workflow, and partly to get
-                much more comfortable with APIs, authentication, databases,
-                serverless backends, and production integrations.
-              </p>
-            </div>
+    <!-- Site Footer -->
+    <div id="site-footer"></div>
 
-            <p class="project-status">Coming soon</p>
-          </article>
-        </div>
-      </main>
+  </div>
+</body>
 
-      <footer class="site-footer">
-        <div class="footer-links">
-          <a href="mailto:patrik@patrikbandak.com" aria-label="Email">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <rect
-                x="3"
-                y="5"
-                width="18"
-                height="14"
-                rx="1.5"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              />
-              <path
-                d="M4.5 7l7.5 6 7.5-6"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </a>
-
-          <span class="footer-separator" aria-hidden="true"></span>
-
-          <a
-            href="https://www.linkedin.com/in/patrikbandak/"
-            aria-label="LinkedIn"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <rect
-                x="2"
-                y="2"
-                width="20"
-                height="20"
-                rx="2.5"
-                fill="currentColor"
-              />
-
-              <g transform="translate(-0.5 0)">
-                <circle cx="7.3" cy="8" r="1.35" fill="white" />
-                <rect
-                  x="6"
-                  y="10.2"
-                  width="2.6"
-                  height="7.8"
-                  fill="white"
-                />
-                <path
-                  d="M10.8 10.2h2.5v1.1c.7-.9 1.7-1.35 2.9-1.35 2.4 0 3.4 1.55 3.4 4.1V18H17v-3.55c0-1.45-.45-2.35-1.75-2.35-1.35 0-1.85.95-1.85 2.55V18h-2.6z"
-                  fill="white"
-                />
-              </g>
-            </svg>
-          </a>
-        </div>
-
-        <p class="footer-quip">
-          Probably still being tinkered with.
-        </p>
-      </footer>
-    </div>
-  </body>
 </html>

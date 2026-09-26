@@ -1,83 +1,57 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The personal website of Patrik Bandak.">
-    <meta property="og:title" content="Patrik Bandak">
-    <meta property="og:description" content="The personal website of Patrik Bandak.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://patrikbandak.com/">
-    <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" type="image/png" href="/assets/favicon/favicon.png">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The personal website of Patrik Bandak.">
+  <meta property="og:title" content="Patrik Bandak">
+  <meta property="og:description" content="The personal website of Patrik Bandak.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://patrikbandak.com/">
+  <meta name="theme-color" content="#ffffff">
 
-    <title>Patrik Bandak</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css">
-  </head>
-  <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon.png">
 
-    <div class="page-shell home-shell">
-      <header class="site-header">
-        <a class="site-name" href="/" aria-current="page">Patrik Bandak</a>
-        <nav class="site-nav" aria-label="Primary navigation">
-          <a href="/about/">About</a>
-          <a href="/experience/">Experience</a>
-          <a href="/projects/">Projects</a>
-          
-          <a href="/contact/">Contact</a>
-        </nav>
-      </header>
+  <title>Patrik Bandak</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
 
-      <main id="main-content" class="home-main">
-        <section class="home-intro" aria-labelledby="home-title">
-          <p class="eyebrow">A little about me</p>
-          <h1 id="home-title"> I like to figure things out, then make them better.</h1>
-          <p class="intro-copy">
-            My work tends to sit somewhere between banking, technology, automation, product, and design.
-          </p>
-          <p class="intro-copy intro-copy-spaced">
-            This is where I bring together my work, projects, ideas, and the path that got me here.
-          </p>
-        </section>
-      </main>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-      <footer class="site-footer">
-        <div class="footer-links">
-          <a href="mailto:patrik@patrikbandak.com" aria-label="Email">
-            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3" y="5" width="18" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M4.5 7l7.5 6 7.5-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+  <div class="page-shell home-shell">
 
-          <span class="footer-separator" aria-hidden="true"></span>
+    <!-- Site Header -->
+    <div id="site-header"></div>
 
-          <a
-            href="https://www.linkedin.com/in/patrikbandak/"
-            aria-label="LinkedIn"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="2" y="2" width="20" height="20" rx="2.5" fill="currentColor"/>
-              <g transform="translate(-0.5 0)">
-                <circle cx="7.3" cy="8" r="1.35" fill="white"/>
-                <rect x="6" y="10.2" width="2.6" height="7.8" fill="white"/>
-                <path d="M10.8 10.2h2.5v1.1c.7-.9 1.7-1.35 2.9-1.35 2.4 0 3.4 1.55 3.4 4.1V18H17v-3.55c0-1.45-.45-2.35-1.75-2.35-1.35 0-1.85.95-1.85 2.55V18h-2.6z" fill="white"/>
-              </g>
-            </svg>
-          </a>
-        </div>
-
-        <p class="footer-quip">
-          Probably still being tinkered with.
+    <main id="main-content" class="home-main">
+      <section class="home-intro" aria-labelledby="home-title">
+        <p class="eyebrow">A little about me</p>
+        <h1>
+          <span>I like to figure things out,</span>
+          <span>then make them better.</span>
+        </h1>
+        <p class="intro-copy">
+          My work tends to sit somewhere between banking, technology, automation, product, and design.
         </p>
-      </footer>
-    </div>
-  </body>
+        <p class="intro-copy intro-copy-spaced">
+          This is where I bring together my work, projects, ideas, and the path that got me here.
+        </p>
+      </section>
+    </main>
+
+    <!-- Site Footer -->
+    <div id="site-footer"></div>
+  </div>
+
+  <!-- Shared site components -->
+  <script src="/js/components.js"></script>
+
+</body>
+
 </html>
