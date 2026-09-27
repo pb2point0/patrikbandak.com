@@ -18,10 +18,6 @@
         "(prefers-reduced-motion: reduce)"
     );
 
-    const desktop = window.matchMedia(
-        "(min-width: 42.01rem)"
-    );
-
     const panelAnimationTime = 500;
     const scrollDuration = 1400;
     const scrollTopOffset = 16;
@@ -219,15 +215,6 @@
 
     function followChapterToTop(chapter) {
         /*
-          Desktop only.
-        */
-
-        if (!desktop.matches) {
-            return;
-        }
-
-
-        /*
           Cancel any previous automatic scroll.
         */
 
@@ -282,7 +269,7 @@
 
             /*
               Recalculate the chapter position every frame.
-      
+
               This is important because another chapter may still
               be collapsing above it while this one opens.
             */
@@ -397,21 +384,20 @@
                 }
             });
 
+
             /*
-              Desktop follows the chapter toward the top while
+              Follow the chapter toward the top while
               the accordion is rearranging the page.
             */
 
             followChapterToTop(chapter);
+
 
             /*
               Open the selected chapter.
             */
 
             openChapter(chapter);
-
-
-
         });
     });
 })();
