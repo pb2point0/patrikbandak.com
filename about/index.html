@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="en">
 
 <head>
@@ -13,13 +14,18 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+
   <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
+
   <a class="skip-link" href="#main-content">Skip to content</a>
+
   <div class="page-shell">
 
     <!-- Site Header -->
@@ -33,236 +39,483 @@
         <h1>How I got here...</h1>
       </header>
 
-      <div class="page-body">
-        <article class="about-essay">
+      <div class="page-body about-page-body">
 
-          <section aria-labelledby="relentless-curiosity">
-            <h2 id="relentless-curiosity" class="about-section-title">
-              Relentless curiosity
+        <article class="about-essay" data-about-accordion>
+
+          <!-- CHAPTER 01 -->
+          <section class="about-chapter about-chapter--navy is-open" data-about-chapter
+            aria-labelledby="chapter-01-title">
+
+            <h2 id="chapter-01-title" class="visually-hidden">
+              Relentless Curiosity
             </h2>
 
-            <p>
-              I have been building computers and teaching myself software since I was nine years old.
-              If you’ve gotten to know me, you might have heard me say that. It is an easy way to explain
-              something that has followed me through nearly everything I have done: when I encounter
-              something I do not understand, I tend to take it apart until I do.
-            </p>
+            <button class="about-chapter-trigger" type="button" aria-expanded="true" aria-controls="chapter-01-panel"
+              aria-label="Chapter One, Relentless Curiosity">
+              <span class="about-chapter-number" aria-hidden="true">1</span>
 
-            <p>
-              In fifth grade, our computer class was assigned a website project built entirely in HTML.
-              I coded mine at home in one night, saved it to a floppy disk, and brought it to school the
-              next day. Once I finished, I started helping my friends build theirs. Around the same time,
-              I rebuilt my Dell into a Thermaltake case and became active in one of the better-known
-              computer-modding communities online, learning from and trading ideas with people who were
-              among the best in the scene. Most of them had no idea they were talking to a kid.
-            </p>
+              <span class="about-chapter-meta" aria-hidden="true">
+                <span class="about-chapter-label">Chapter One</span>
+                <span class="about-chapter-title">
+                  Relentless<br>Curiosity
+                </span>
+              </span>
 
-            <p>
-              Sports were developing another side of me at the same time. My dad coached, and I grew up
-              in a family that was intensely competitive but equally supportive. Soccer, speed training,
-              and plyometrics were simply part of life. I regularly trained alongside athletes several
-              years older than me and sometimes outperformed high school players in the speed drills.
-              I learned early that being the least experienced person in the room was not necessarily a
-              disadvantage. It was often where I learned the fastest.
-            </p>
+              <span class="about-chapter-teaser" aria-hidden="true">
+                I’ve always wanted to know how things work.
+              </span>
 
-            <p>
-              I started working early, too. By twelve, I was helping in my parents’ warehouse in San Diego,
-              unloading 54-foot shipping containers and sometimes climbing all the way into the back because
-              I was small enough to fit where the adults could not. Competitive paintball became a major
-              part of my life around the same time. I played competitively and worked as a referee at
-              Mr. Paintball in Escondido. One of my more memorable assignments was managing a group of more
-              than twenty officers from the Escondido Police Department for the day. They had a blast, and
-              so did I. A few years later, I helped build Raza Field, San Diego Dynasty’s own field,
-              including installing safety netting from a boom lift roughly thirty feet in the air.
-            </p>
+              <span class="about-chapter-chevron" aria-hidden="true">
+                <svg viewBox="0 0 20 20">
+                  <path d="M4 7.5 10 13l6-5.5" />
+                </svg>
+              </span>
+            </button>
 
-            <p>
-              At the time, none of this felt especially unusual to me. I liked being around people who were
-              better than I was, asking questions, testing myself, and figuring out how things worked. I was
-              also growing up around people who competed hard without treating someone else’s success as a
-              threat. Teaching, encouragement, and high expectations could coexist. That combination has
-              stayed with me.
-            </p>
+            <div id="chapter-01-panel" class="about-chapter-panel" role="region" aria-labelledby="chapter-01-title">
+              <div class="about-chapter-panel-inner">
+
+                <div class="about-chapter-copy">
+
+                  <p>
+                    I have been building computers and teaching myself software since I was nine years old. If you’ve
+                    gotten to know me, you might have heard me say that. It is an easy way to explain something that has
+                    followed me through nearly everything I have done: when I encounter something I do not understand, I
+                    tend to take it apart until I do.
+                  </p>
+
+                  <p>
+                    In fifth grade, our computer class was assigned a website project built entirely in HTML. I went
+                    home, coded mine that night, saved it to a floppy disk, and brought it back to school the next day.
+                    Once I had finished the assignment, I started helping my friends with theirs so we could all get on
+                    to something more fun.
+                  </p>
+
+                  <p>
+                    Around the same time, I took apart my first computer, a Dell, and managed to put it back together
+                    with a few screws left over. It still worked. Before long, I had rebuilt it inside a Thermaltake
+                    case, replaced components, cut into the case with a Dremel, modified the cooling system, and posted
+                    the finished computer on Twisted Mods. I was young enough that most of the people I was talking to
+                    had no idea they were talking to a kid. That was probably part of the appeal. I liked being around
+                    people who knew much more than I did and learning enough to participate in the conversation.
+                  </p>
+
+                  <p>
+                    Photoshop came next. I made logos, forum signatures, and whatever else gave me an excuse to figure
+                    out another tool. None of this felt like preparation for anything. I was just relentlessly curious,
+                    and once I understood something, I usually wanted to see what I could do with it.
+                  </p>
+
+                  <p>
+                    That curiosity was not limited to computers. My dad coached, and I grew up in a family that was
+                    intensely competitive but equally supportive. I trained alongside athletes several years older than
+                    me, played soccer, and eventually got heavily into competitive paintball. I also started working
+                    young, first helping in my parents’ warehouse and later refereeing at a paintball field. A few years
+                    after that, I helped build Raza Field, San Diego Dynasty’s own field, which at one point had me
+                    thirty feet in the air on a boom lift installing safety netting.
+                  </p>
+
+                  <p>
+                    I did not think much about the pattern at the time. I liked being useful, I liked learning from
+                    people who were better than I was, and I was rarely bothered by being the least experienced person
+                    in the room.
+                  </p>
+
+                </div>
+
+              </div>
+            </div>
+
           </section>
 
 
-          <section aria-labelledby="starting-over">
-            <h2 id="starting-over" class="about-section-title">
-              Starting over
+          <!-- CHAPTER 02 -->
+          <section class="about-chapter" data-about-chapter aria-labelledby="chapter-02-title">
+
+            <h2 id="chapter-02-title" class="visually-hidden">
+              Starting Over
             </h2>
 
-            <p>
-              My teenage years were not particularly linear. I lost my best friend during my freshman year
-              of high school and failed the year. The following year, after moving to a charter school,
-              I earned a 4.0. I never completed a traditional junior year because my family’s life was
-              increasingly divided between the United States, Germany, and Sweden, and I moved to Munich.
-            </p>
+            <button class="about-chapter-trigger" type="button" aria-expanded="false" aria-controls="chapter-02-panel"
+              aria-label="Chapter Two, Starting Over">
+              <span class="about-chapter-number" aria-hidden="true">2</span>
 
-            <p>
-              My first stretch there lasted about six months. I studied German at the Goethe-Institut and
-              attended a German high school before returning to California, where I earned my GED. About a
-              year later, I went back to Germany for what was supposed to be a visit. I was offered a
-              temporary position at a Montessori school for a couple of weeks, but it went well enough that
-              they asked me to stay for the rest of the school year. I did, spending another six months in
-              Munich working with the students and helping teach English before returning to the United
-              States at eighteen.
-            </p>
+              <span class="about-chapter-meta" aria-hidden="true">
+                <span class="about-chapter-label">Chapter Two</span>
+                <span class="about-chapter-title">
+                  Starting Over
+                </span>
+              </span>
 
-            <p>
-              What those years gave me was a lot of practice starting over. New schools, new countries,
-              new languages, new jobs, and very different groups of people became normal fairly early.
-              I became comfortable walking into situations where I did not know everything yet, paying
-              attention, learning quickly, and finding a way to contribute.
-            </p>
+              <span class="about-chapter-teaser" aria-hidden="true">
+                Change became familiar earlier than I expected.
+              </span>
+
+              <span class="about-chapter-chevron" aria-hidden="true">
+                <svg viewBox="0 0 20 20">
+                  <path d="M4 7.5 10 13l6-5.5" />
+                </svg>
+              </span>
+            </button>
+
+            <div id="chapter-02-panel" class="about-chapter-panel" role="region" aria-labelledby="chapter-02-title"
+              hidden>
+              <div class="about-chapter-panel-inner">
+
+                <div class="about-chapter-copy">
+
+                  <p>
+                    I lost my best friend during my freshman year of high school and failed the year. The following
+                    year, after moving to a charter school, I earned a 4.0. I never completed a traditional junior year
+                    because my family’s life was increasingly divided between the United States, Germany, and Sweden,
+                    and I moved to Munich.
+                  </p>
+
+                  <p>
+                    My first stretch there lasted about six months. I studied German at the Goethe-Institut and attended
+                    a German high school before returning to California, where I earned my GED. About a year later, I
+                    went back to Germany for what was supposed to be a visit. I was offered a temporary position at a
+                    Montessori school for a couple of weeks, it went well, and they asked me to stay for the rest of the
+                    school year. I did, spending another six months in Munich working with the students and helping
+                    teach English before returning to the United States at eighteen.
+                  </p>
+
+                  <p>
+                    There was a fair amount of reinvention packed into those years. Schools changed, countries changed,
+                    languages changed, and the people around me changed. Starting over stopped feeling particularly
+                    dramatic because I had done it enough times to know that the uncomfortable part eventually passed. I
+                    learned to pay attention, figure out the environment I had walked into, and find a way to contribute
+                    before I completely understood it.
+                  </p>
+
+                  <p>
+                    That has probably been more useful in adulthood than I appreciated at the time.
+                  </p>
+
+                </div>
+
+              </div>
+            </div>
+
           </section>
 
 
-          <section aria-labelledby="people">
-            <h2 id="people" class="about-section-title">
-              People
+          <!-- CHAPTER 03 -->
+          <section class="about-chapter" data-about-chapter aria-labelledby="chapter-03-title">
+
+            <h2 id="chapter-03-title" class="visually-hidden">
+              Learning How to Think
             </h2>
 
-            <p>
-              Back in California, I sold shoes at Robert Wayne, worked as a valet in Coronado, and eventually
-              found my way into banking as a teller. None of those jobs looked connected at the time, but
-              together they gave me an education in people. I learned how differently people communicate,
-              how quickly a situation can change, and how much trust can depend on seemingly small details.
-              I also discovered that I genuinely enjoyed being responsible for making something work well
-              for someone else.
-            </p>
+            <button class="about-chapter-trigger" type="button" aria-expanded="false" aria-controls="chapter-03-panel"
+              aria-label="Chapter Three, Learning How to Think">
+              <span class="about-chapter-number" aria-hidden="true">3</span>
 
-            <p>
-              College gave those instincts another dimension. A rhetoric course introduced me to Aristotle,
-              which eventually led me through <em>Nicomachean Ethics</em>, Marcus Aurelius, Plato, and a
-              much broader interest in how people reason, communicate, and make decisions. I became the only
-              tutor on campus dedicated to business administration and finance and found that teaching forced
-              me to understand ideas at a deeper level. If I could explain something clearly enough for
-              another person to use it, I knew I understood it myself. I ultimately graduated magna cum laude.
-            </p>
+              <span class="about-chapter-meta" aria-hidden="true">
+                <span class="about-chapter-label">Chapter Three</span>
+                <span class="about-chapter-title">
+                  Learning<br>How to Think
+                </span>
+              </span>
 
-            <p>
-              My perspective has also been shaped by living and working across cultures. I am a Swedish
-              citizen, spent significant time in Munich, and later worked in Abu Dhabi. My family is based
-              in Sweden and Germany, and international travel has been a regular part of my life, giving me
-              the opportunity to spend time in and learn from communities around the world. Those experiences
-              taught me to listen before assuming I understand the environment I have entered and to expect
-              that intelligent people may approach the same problem very differently.
-            </p>
+              <span class="about-chapter-teaser" aria-hidden="true">
+                College gave some structure to things I had been doing instinctively.
+              </span>
+
+              <span class="about-chapter-chevron" aria-hidden="true">
+                <svg viewBox="0 0 20 20">
+                  <path d="M4 7.5 10 13l6-5.5" />
+                </svg>
+              </span>
+            </button>
+
+            <div id="chapter-03-panel" class="about-chapter-panel" role="region" aria-labelledby="chapter-03-title"
+              hidden>
+              <div class="about-chapter-panel-inner">
+
+                <div class="about-chapter-copy">
+
+                  <p>
+                    Back in California, I sold shoes at Robert Wayne, worked as a valet in Coronado, and eventually
+                    found my way into banking as a teller. I was still figuring out what I wanted to do, and for a while
+                    work and school were simply happening alongside each other.
+                  </p>
+
+                  <p>
+                    One of the classes that changed that was English 110 with Professor Jendian at Grossmont College. He
+                    was not easy to impress. He was adamant that every word in an essay, every word in an advertisement,
+                    and even every word on one of those hotel placards asking you to reuse your towels was there for a
+                    reason. He drilled rhetoric into us, including a line I still hear in my head from time to time: “If
+                    you don’t study rhetoric, you will fall victim to it.”
+                  </p>
+
+                  <p>
+                    Around then, I was taking the trolley to work and would occasionally kill time at a Barnes &amp;
+                    Noble nearby. One day I wandered into the philosophy section and picked up Aristotle’s
+                    <em>Poetics</em> and <em>Rhetoric</em>. That led to the <em>Nicomachean Ethics</em>, Marcus
+                    Aurelius’ <em>Meditations</em>, Plato’s <em>Apology</em>, and a much broader interest in philosophy.
+                  </p>
+
+                  <p>
+                    I was less interested in finding the philosophy I agreed with than in understanding the arguments.
+                    Why did someone believe what they believed? What assumptions were underneath the conclusion? What
+                    changed when the same question was viewed from somewhere else?
+                  </p>
+
+                  <p>
+                    Years later, when I encountered David Foster Wallace’s <em>This Is Water</em>, his description of
+                    education as learning how to think felt familiar. The value was not simply knowing more things. It
+                    was becoming more conscious of what I noticed, how quickly I formed conclusions, and how much of the
+                    world I was interpreting through assumptions I had never really examined.
+                  </p>
+
+                  <p>
+                    When I transferred to Saint Mary’s College of California, Professor Kolhede recommended during my
+                    first semester that I become the Business Administration tutor. I ended up being the only one for
+                    the two years I was there, sometimes tutoring material from classes I was taking myself. It
+                    reinforced something I had discovered years earlier while helping friends with HTML: explaining
+                    something to someone else is one of the fastest ways to discover whether you actually understand it.
+                  </p>
+
+                  <p>
+                    By then, living between cultures had become a fairly normal part of my life as well. I am a Swedish
+                    citizen, had spent significant time in Munich, and later worked in Abu Dhabi. Those experiences made
+                    it difficult to assume that my own way of seeing something was the obvious one. Context matters, and
+                    intelligent people can look at exactly the same situation and come away with very different
+                    interpretations.
+                  </p>
+
+                  <p>
+                    I ultimately graduated magna cum laude, but what stayed with me more than the degree was the habit
+                    of asking better questions.
+                  </p>
+
+                </div>
+
+              </div>
+            </div>
+
           </section>
 
 
-          <section aria-labelledby="systems">
-            <h2 id="systems" class="about-section-title">
+          <!-- CHAPTER 04 -->
+          <section class="about-chapter" data-about-chapter aria-labelledby="chapter-04-title">
+
+            <h2 id="chapter-04-title" class="visually-hidden">
               Systems
             </h2>
 
-            <p>
-              My professional career grew from that foundation. I moved from the teller line through personal
-              banking, small-business banking, commercial banking, customer success, treasury operations,
-              complex implementations, and product delivery. Over time, my focus shifted from operating
-              within existing processes to understanding why they worked the way they did, where they were
-              failing, and how the underlying product or operating model could be improved.
-            </p>
+            <button class="about-chapter-trigger" type="button" aria-expanded="false" aria-controls="chapter-04-panel"
+              aria-label="Chapter Four, Systems">
+              <span class="about-chapter-number" aria-hidden="true">4</span>
 
-            <p>
-              Today, I operate at the intersection of treasury, product, technology, automation, and AI
-              transformation. I lead complex commercial banking implementations, but implementation is only
-              one part of the work. I move from customer and banker needs through discovery, requirements,
-              operating-model design, workflow automation, internal applications, executive reporting,
-              governance, adoption, and measurement.
-            </p>
+              <span class="about-chapter-meta" aria-hidden="true">
+                <span class="about-chapter-label">Chapter Four</span>
+                <span class="about-chapter-title">
+                  Systems
+                </span>
+              </span>
 
-            <p>
-              I have designed common operating models across treasury products, built automated reporting
-              across more than 450 treasury-service records, created repeatable applications and workflows
-              to replace manual processes, and established governance and value frameworks across a growing
-              portfolio of AI and automation initiatives. The goal is rarely just to solve the problem in
-              front of me. When I see the same problem more than once, I start looking for the product,
-              workflow, or operating model hiding underneath it.
-            </p>
+              <span class="about-chapter-teaser" aria-hidden="true">
+                Banking became the largest system I had tried to understand.
+              </span>
 
-            <p>
-              Much of my role is translation, but not translation in the passive sense. I work across
-              commercial product, technical product, technology, operations, information security, risk,
-              compliance, marketing, and customer-facing teams to turn business needs into things that can
-              actually be delivered. That means defining customer impact and requirements, challenging
-              unclear assumptions, identifying dependencies, establishing readiness and success measures,
-              and helping determine what should be built, in what order, and how it will operate once it
-              exists.
-            </p>
+              <span class="about-chapter-chevron" aria-hidden="true">
+                <svg viewBox="0 0 20 20">
+                  <path d="M4 7.5 10 13l6-5.5" />
+                </svg>
+              </span>
+            </button>
 
-            <p>
-              AI has made that work both more interesting and more consequential. I lead discovery with
-              business teams to understand the current workflow, source systems, volume, expected value,
-              risks, and adoption needs before deciding whether AI belongs in the solution at all. From
-              there, I have structured AI product concepts, designed prompt and retrieval frameworks,
-              defined human-review points and quality checks, built internal tools, and helped teams move
-              from experimentation toward capabilities that can operate responsibly inside a regulated
-              business.
-            </p>
+            <div id="chapter-04-panel" class="about-chapter-panel" role="region" aria-labelledby="chapter-04-title"
+              hidden>
+              <div class="about-chapter-panel-inner">
 
-            <p>
-              Governance is central to how I approach that work. I design against information entropy by
-              keeping authoritative sources authoritative. AI systems should retrieve from current, approved
-              content rather than depend on unmanaged copies that drift away from the source of truth.
-              Ownership should remain clear. Human review should exist where judgment matters. Access, PII,
-              auditability, data handling, system-of-record boundaries, testing, limitations, and approval
-              status should be designed into the product rather than added after the fact.
-            </p>
+                <div class="about-chapter-copy">
 
-            <p>
-              I do not view governance as something that slows innovation down. Done well, it is what makes
-              innovation safe enough to scale.
-            </p>
+                  <p>
+                    I started on the teller line and moved through personal banking, small-business banking, commercial
+                    banking, customer success, treasury operations, complex implementations, and eventually much deeper
+                    into product and technology. There was never a master plan behind that progression. Each role
+                    exposed another part of the business that I wanted to understand.
+                  </p>
+
+                  <p>
+                    For several years, part of my work involved helping bankers develop their business acumen and become
+                    more comfortable working with clients. I enjoyed it for many of the same reasons I had enjoyed
+                    tutoring. Teaching forced me to make things clear, while working with people who approached the job
+                    differently exposed gaps in my own thinking.
+                  </p>
+
+                  <p>
+                    Implementations changed my perspective again because they forced me to see more of the bank at once.
+                    A client might describe what they wanted in business terms, while Product saw a capability,
+                    Operations saw the process required to support it, and Technology saw the architecture and
+                    dependencies underneath it. Information Security, Risk, Compliance, Legal, or another group could
+                    then introduce a constraint that was every bit as real as the original client need.
+                  </p>
+
+                  <p>
+                    I found myself increasingly drawn to that overlap.
+                  </p>
+
+                  <p>
+                    Much of my work today lives somewhere between banking, product, technology, and operations. I might
+                    begin with a client problem, a broken process, or an idea for a new capability, but solving it
+                    usually means understanding enough of several different systems to see how they affect one another.
+                    The work has gradually expanded from implementing what already exists to questioning the way the
+                    underlying product, workflow, or operating model works in the first place.
+                  </p>
+
+                  <p>
+                    That is also how I got deeper into automation. Repeated manual work has a way of making the design
+                    problems underneath it very visible. I started building tools and workflows to remove some of that
+                    work, which led naturally into broader product conversations and, more recently, AI.
+                  </p>
+
+                  <p>
+                    AI interests me for many of the same reasons computers interested me when I was a kid. I want to
+                    understand what it can do, where the limits are, and what changes when you put it into the hands of
+                    people trying to get real work done. The difference now is that I spend much more time thinking
+                    about the surrounding system.
+                  </p>
+
+                  <p>
+                    Inside a bank, a prototype working is only the beginning. You need to know where the information
+                    came from, whether it is current, who should have access to it, where human judgment belongs, what
+                    happens when the output is wrong, and who owns the process when the novelty wears off. I have become
+                    more interested in governance as the technology has become more capable, because the interesting
+                    challenge is no longer simply whether something can be built. It is whether it can become a reliable
+                    part of how an organization operates.
+                  </p>
+
+                  <p>
+                    I still like getting into the details myself. I build things, work through APIs, databases,
+                    interfaces, and workflows, and use AI to get into unfamiliar technical territory faster than I could
+                    before. I also know that I do not need to be the deepest technical expert in every room. What
+                    matters more is understanding enough to work well with the people who are, while keeping sight of
+                    the customer, the business problem, and all the other parts of the system that determine whether an
+                    idea survives contact with reality.
+                  </p>
+
+                  <p>
+                    The systems are considerably larger than the Dell I took apart when I was nine, but the instinct is
+                    pretty much the same.
+                  </p>
+
+                </div>
+
+              </div>
+            </div>
+
           </section>
 
 
-          <section aria-labelledby="connecting-the-dots">
-            <h2 id="connecting-the-dots" class="about-section-title">
-              Connecting the dots
+          <!-- CHAPTER 05 -->
+          <section class="about-chapter" data-about-chapter aria-labelledby="chapter-05-title">
+
+            <h2 id="chapter-05-title" class="visually-hidden">
+              Connecting the Dots
             </h2>
 
-            <p>
-              The common thread through all of this is that I like working between disciplines. Customer and
-              technology. Product and operations. Strategy and execution. Innovation and control. I tend to
-              be most useful when the problem is still a little messy, several people understand different
-              pieces of it, and someone needs to understand enough of each side to connect them and move the
-              work forward.
-            </p>
+            <button class="about-chapter-trigger" type="button" aria-expanded="false" aria-controls="chapter-05-panel"
+              aria-label="Chapter Five, Connecting the Dots">
+              <span class="about-chapter-number" aria-hidden="true">5</span>
 
-            <p>
-              I have also carried forward something from the coaches, teachers, colleagues, and family members
-              who expected a lot from me early in life. High standards and support are not opposites. The best
-              environments I have been part of challenged people while also giving them the tools, trust, and
-              room to improve. I think good leadership works the same way, and I think good technology should
-              do something similar. It should make people more capable, remove unnecessary friction, and
-              preserve human judgment where that judgment matters.
-            </p>
+              <span class="about-chapter-meta" aria-hidden="true">
+                <span class="about-chapter-label">Chapter Five</span>
+                <span class="about-chapter-title">
+                  Connecting<br>the Dots
+                </span>
+              </span>
 
-            <p>
-              I know the kind of work I want to keep doing. I want to build and run businesses, products,
-              and teams that work well, and be the person people can count on when something needs to be
-              fixed, simplified, or made better. Whether that eventually means building something of my own
-              or helping run something bigger, I am less concerned with the title than the work itself.
-            </p>
+              <span class="about-chapter-teaser" aria-hidden="true">
+                Looking backward, the pattern is easier to see.
+              </span>
 
-            <p>
-              Looking backward, the dots already connect more than I expected.
-            </p>
+              <span class="about-chapter-chevron" aria-hidden="true">
+                <svg viewBox="0 0 20 20">
+                  <path d="M4 7.5 10 13l6-5.5" />
+                </svg>
+              </span>
+            </button>
+
+            <div id="chapter-05-panel" class="about-chapter-panel" role="region" aria-labelledby="chapter-05-title"
+              hidden>
+              <div class="about-chapter-panel-inner">
+
+                <div class="about-chapter-copy">
+
+                  <p>
+                    Steve Jobs once said, “You can’t connect the dots looking forward; you can only connect them looking
+                    backwards.” I have always liked that line because most of the things that shaped me did not look
+                    especially connected while they were happening.
+                  </p>
+
+                  <p>
+                    Learning HTML, rebuilding computers, spending hours in Photoshop, moving between countries, reading
+                    philosophy, tutoring, working in a bank branch, learning commercial banking, getting pulled into
+                    complex implementations, building internal tools, and eventually working across product, technology,
+                    operations, and AI all felt like separate interests or separate stages of my life.
+                  </p>
+
+                  <p>
+                    They make more sense together now.
+                  </p>
+
+                  <p>
+                    I like understanding how things work, especially when understanding them requires looking at the
+                    problem from more than one direction. I enjoy working with people who know things I do not, and I am
+                    comfortable going deep enough into something unfamiliar to participate meaningfully in the
+                    conversation. Once I understand the system, I tend to start noticing the places where it could work
+                    better.
+                  </p>
+
+                  <p>
+                    That is probably why I have never felt much need to fit neatly into one professional discipline.
+                    Banking, product, technology, operations, design, communication, and organizational behavior all
+                    interest me, and the work I enjoy most usually happens somewhere between them. I am interested in
+                    the whole kit and kaboodle, not because I need to own every piece of it, but because the pieces
+                    rarely behave independently.
+                  </p>
+
+                  <p>
+                    Long term, I want to build and run businesses. I do not know exactly what form that takes yet, and I
+                    do not think I need to. Whether I eventually build something of my own or help run something larger,
+                    I care more about the work, the responsibility, and the opportunity to make something better than I
+                    do about the title attached to it.
+                  </p>
+
+                  <p>
+                    Looking backwards, the dots already connect enough for me to trust the pattern.
+                  </p>
+
+                </div>
+
+              </div>
+            </div>
+
           </section>
 
         </article>
+
       </div>
 
     </main>
 
+
     <!-- Site Footer -->
     <div id="site-footer"></div>
+
   </div>
+
 
   <!-- Shared site components -->
   <script src="/js/components.js"></script>
+
+  <!-- About chapter interaction -->
+  <script src="/js/about.js"></script>
 
 </body>
 
