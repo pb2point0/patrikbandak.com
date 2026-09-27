@@ -26,4 +26,14 @@ document.addEventListener("click", (event) => {
   );
 
   navigation.classList.toggle("is-open", !isOpen);
+
+  const currentRotation = Number(menuButton.dataset.rotation || 0);
+  const nextRotation = currentRotation + 90;
+
+  menuButton.dataset.rotation = String(nextRotation);
+
+  menuButton.style.setProperty(
+    "--menu-rotation",
+    `${nextRotation}deg`
+  );
 });
