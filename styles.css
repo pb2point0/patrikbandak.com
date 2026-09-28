@@ -11,6 +11,10 @@
   --content-width: 56rem;
   --rule: 1px solid var(--navy);
 
+  --wide-content-width: 72rem;
+  --rule-subtle: 1px solid rgba(20, 38, 61, 0.18);
+  --radius: 10px;
+
   --font-serif: "Libre Baskerville", Georgia, serif;
   --font-sans: "Manrope", Arial, sans-serif;
 
@@ -917,13 +921,124 @@ h2 {
    ========================================================= */
 
 /*
-  These elements exist in the shared header but are hidden
-  on desktop. Mobile reveals them below.
+   These elements exist in the shared header but are hidden
+   on desktop. Mobile reveals them below.
 */
 
 .site-mark,
 .menu-toggle {
   display: none;
+}
+
+
+/* =========================================================
+   PROJECTS DROPDOWN
+   ========================================================= */
+
+.site-header {
+  overflow: visible;
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  background: none;
+
+  font: inherit;
+  color: inherit;
+
+  cursor: pointer;
+}
+
+
+/* Chevron */
+
+.nav-dropdown__chevron {
+  width: 0.32rem;
+  height: 0.32rem;
+
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+
+  transform: rotate(45deg) translateY(-0.08rem);
+
+  transition: transform 160ms ease;
+}
+
+.nav-dropdown.is-open .nav-dropdown__chevron {
+  transform: rotate(-135deg) translate(-0.05rem, -0.05rem);
+}
+
+
+/* =========================================================
+   DESKTOP — PROJECTS DROPDOWN
+   ========================================================= */
+
+@media (min-width: 42.01rem) {
+
+  .nav-dropdown__menu {
+    position: absolute;
+
+    top: calc(100% + 0.7rem);
+    left: 0;
+
+    min-width: 13.5rem;
+
+    padding: 0.45rem 0;
+
+    background: var(--background);
+
+    border: 1px solid rgba(20, 38, 61, 0.12);
+    border-radius: 0.5rem;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-0.2rem);
+
+    pointer-events: none;
+
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease,
+      visibility 160ms ease;
+
+    z-index: 1000;
+  }
+
+  .nav-dropdown.is-open .nav-dropdown__menu {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+  }
+
+  .nav-dropdown__menu a {
+    display: block;
+
+    padding: 0.55rem 0.75rem;
+
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .nav-dropdown__menu a:hover,
+  .nav-dropdown__menu a:focus-visible {
+    background: rgba(20, 38, 61, 0.05);
+  }
+
 }
 
 
@@ -1061,6 +1176,7 @@ h2 {
 
   .menu-icon {
     position: relative;
+
     display: block;
     flex: none;
 
@@ -1137,9 +1253,7 @@ h2 {
     opacity: 0;
     visibility: hidden;
 
-    transform:
-      translateY(-0.4rem) scale(0.98);
-
+    transform: translateY(-0.4rem) scale(0.98);
     transform-origin: top right;
 
     pointer-events: none;
@@ -1154,8 +1268,7 @@ h2 {
     opacity: 1;
     visibility: visible;
 
-    transform:
-      translateY(0) scale(1);
+    transform: translateY(0) scale(1);
 
     pointer-events: auto;
   }
@@ -1181,6 +1294,56 @@ h2 {
     text-decoration: none;
   }
 
+
+  /* Projects dropdown */
+
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown__trigger {
+    width: fit-content;
+
+    padding: 0.8rem 0.9rem;
+
+    color: var(--text);
+
+    font-size: 0.82rem;
+  }
+
+  .nav-dropdown__menu {
+    display: grid;
+
+    max-height: 0;
+
+    margin: 0;
+    padding: 0 0 0 0.9rem;
+
+    border-left: 1px solid rgba(20, 38, 61, 0.2);
+
+    opacity: 0;
+    overflow: hidden;
+
+    transition:
+      max-height 220ms ease,
+      opacity 180ms ease,
+      margin 220ms ease;
+  }
+
+  .nav-dropdown.is-open .nav-dropdown__menu {
+    max-height: 10rem;
+
+    margin-top: 0.15rem;
+    margin-bottom: 0.2rem;
+
+    opacity: 1;
+  }
+
+  .nav-dropdown__menu a {
+    padding: 0.4rem 0.9rem;
+
+    font-size: 0.76rem;
+  }
 
   /* =========================================================
      HOME

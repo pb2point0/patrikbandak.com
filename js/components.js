@@ -5,35 +5,179 @@ async function loadComponent(id, file) {
   document.getElementById(id).innerHTML = html;
 }
 
+
+/* =========================================================
+   LOAD SHARED COMPONENTS
+   ========================================================= */
+
 loadComponent("site-header", "/components/header.html");
 loadComponent("site-footer", "/components/footer.html");
 
+
+/* =========================================================
+   CLICK INTERACTIONS
+   ========================================================= */
+
 document.addEventListener("click", (event) => {
+
+  /* ---------------------------------------------------------
+     MOBILE MENU
+     --------------------------------------------------------- */
+
   const menuButton = event.target.closest(".menu-toggle");
 
-  if (!menuButton) {
+  if (menuButton) {
+    const navigation = document.querySelector("#site-nav");
+    const isOpen =
+      menuButton.getAttribute("aria-expanded") === "true";
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      String(!isOpen)
+    );
+
+    menuButton.setAttribute(
+      "aria-label",
+      isOpen ? "Open navigation" : "Close navigation"
+    );
+
+    navigation.classList.toggle(
+      "is-open",
+      !isOpen
+    );
+
+    const currentRotation = Number(
+      menuButton.dataset.rotation || 0
+    );
+
+    const nextRotation = currentRotation + 90;
+
+    menuButton.dataset.rotation = String(nextRotation);
+
+    menuButton.style.setProperty(
+      "--menu-rotation",
+      `${nextRotation}deg`
+    );
+
+    /*
+      Close Projects whenever the main
+      mobile navigation closes.
+    */
+
+    if (isOpen) {
+      closeProjectsDropdown();
+    }
+
     return;
   }
 
-  const navigation = document.querySelector("#site-nav");
-  const isOpen = menuButton.getAttribute("aria-expanded") === "true";
 
-  menuButton.setAttribute("aria-expanded", String(!isOpen));
+  /* ---------------------------------------------------------
+     PROJECTS DROPDOWN
+     --------------------------------------------------------- */
 
-  menuButton.setAttribute(
-    "aria-label",
-    isOpen ? "Open navigation" : "Close navigation"
+  const dropdownTrigger = event.target.closest(
+    ".nav-dropdown__trigger"
   );
 
-  navigation.classList.toggle("is-open", !isOpen);
+  if (dropdownTrigger) {
+    event.stopPropagation();
 
-  const currentRotation = Number(menuButton.dataset.rotation || 0);
-  const nextRotation = currentRotation + 90;
+    const dropdown = dropdownTrigger.closest(
+      ".nav-dropdown"
+    );
 
-  menuButton.dataset.rotation = String(nextRotation);
+    const isOpen = dropdown.classList.contains(
+      "is-open"
+    );
 
-  menuButton.style.setProperty(
-    "--menu-rotation",
-    `${nextRotation}deg`
-  );
+    setProjectsDropdown(
+      dropdown,
+      dropdownTrigger,
+      !isOpen
+    );
+
+    return;
+  }
+
+
+  /* ---------------------------------------------------------
+     CLICK OUTSIDE
+     --------------------------------------------------------- */
+
+  if (!event.target.closest(".nav-dropdown")) {
+    closeProjectsDropdown();
+  }
+
 });
+
+
+/* =========================================================
+   KEYBOARD
+   ========================================================= */
+
+document.addEventListener("keydown", (event) => {
+
+  if (event.key !== "Escape") {
+    return;
+  }
+
+  const openDropdown = document.querySelector(
+    ".nav-dropdown.is-open"
+  );
+
+  if (!openDropdown) {
+    return;
+  }
+
+  const trigger = openDropdown.querySelector(
+    ".nav-dropdown__trigger"
+  );
+
+  closeProjectsDropdown();
+
+  trigger?.focus();
+});
+
+
+/* =========================================================
+   PROJECTS HELPERS
+   ========================================================= */
+
+function setProjectsDropdown(
+  dropdown,
+  trigger,
+  open
+) {
+  dropdown.classList.toggle(
+    "is-open",
+    open
+  );
+
+  trigger.setAttribute(
+    "aria-expanded",
+    String(open)
+  );
+}
+
+
+function closeProjectsDropdown() {
+  const dropdown = document.querySelector(
+    ".nav-dropdown.is-open"
+  );
+
+  if (!dropdown) {
+    return;
+  }
+
+  const trigger = dropdown.querySelector(
+    ".nav-dropdown__trigger"
+  );
+
+  dropdown.classList.remove("is-open");
+
+  trigger?.setAttribute(
+    "aria-expanded",
+    "false"
+  );
+}

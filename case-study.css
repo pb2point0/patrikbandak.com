@@ -1,0 +1,1098 @@
+/* =========================================================
+   CASE STUDY
+   Shared long-form project system for patrikbandak.com
+   Extends /styles.css
+   ========================================================= */
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.case-hero {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.7fr) 2fr;
+
+  gap: 1.5rem 2rem;
+
+  padding-bottom: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.case-hero>* {
+  min-width: 0;
+}
+
+.case-hero>.eyebrow {
+  grid-column: 1;
+
+  align-self: start;
+
+  margin: 0.45rem 0 0;
+}
+
+.case-hero h1,
+.case-hero__lead,
+.case-meta {
+  grid-column: 2;
+}
+
+.case-hero h1 {
+  max-width: 16ch;
+
+  margin-bottom: 0;
+
+  font-size: clamp(2.4rem, 5.5vw, 4.1rem);
+  line-height: 1.08;
+}
+
+.case-hero__lead {
+  max-width: 43rem;
+
+  margin: 0.75rem 0 0;
+
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   PROJECT META
+   ========================================================= */
+
+.case-meta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  margin: 2rem 0 0;
+  padding-top: 1.4rem;
+
+  border-top: var(--rule);
+}
+
+.case-meta div {
+  min-width: 0;
+}
+
+.case-meta dt {
+  margin-bottom: 0.4rem;
+
+  color: var(--navy);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.case-meta dd {
+  margin: 0;
+
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   SHARED IMAGE TREATMENT
+   ========================================================= */
+
+.case-hero-image,
+.comparison-panel {
+  margin: 0;
+}
+
+.case-hero-image {
+  width: min(var(--wide-content-width),
+      calc(100vw - 3rem));
+
+  margin-left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.case-hero-image img,
+.comparison-panel img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  border: var(--rule-subtle);
+  border-radius: var(--radius);
+}
+
+.case-hero-image img {
+  aspect-ratio: 1.44 / 1;
+
+  object-fit: cover;
+  object-position: top;
+
+  box-shadow: 0 1rem 3rem rgba(20, 38, 61, 0.10);
+}
+
+.case-hero-image figcaption,
+.comparison-panel figcaption {
+  margin-top: 0.8rem;
+
+  color: var(--muted);
+
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   STANDARD CASE SECTIONS
+   ========================================================= */
+
+.case-section {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.7fr) 2fr;
+
+  gap: 2rem;
+
+  padding: clamp(4.5rem, 9vw, 7rem) 0;
+
+  border-bottom: var(--rule-subtle);
+}
+
+.case-section__label .eyebrow {
+  margin: 0.35rem 0 0;
+}
+
+.case-section__body {
+  max-width: 43rem;
+}
+
+.case-section__body h2,
+.comparison-section__heading h2,
+.process-section__heading h2,
+.case-results__heading h2,
+.case-close h2 {
+  max-width: 24ch;
+
+  font-size: clamp(1.75rem, 4vw, 2.65rem);
+  line-height: 1.18;
+}
+
+.case-section__body>p:last-child,
+.case-results__detail p,
+.case-close>p:last-of-type,
+.measurement-note p {
+  margin-bottom: 0;
+}
+
+.case-intro {
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   CHALLENGE LIST
+   ========================================================= */
+
+.case-list {
+  margin: 2rem 0 0;
+  padding: 0;
+
+  list-style: none;
+
+  border-top: var(--rule);
+}
+
+.case-list li {
+  position: relative;
+
+  padding: 1rem 0 1rem 1.6rem;
+
+  border-bottom: var(--rule-subtle);
+}
+
+.case-list li::before {
+  content: "";
+
+  position: absolute;
+
+  top: 1.62rem;
+  left: 0;
+
+  width: 0.55rem;
+  height: 1px;
+
+  background: var(--navy);
+}
+
+.case-list li:last-child {
+  border-bottom: 0;
+}
+
+/* =========================================================
+   RESULTS
+   ========================================================= */
+
+.case-results {
+  width: min(var(--wide-content-width),
+      calc(100vw - 3rem));
+
+  margin:
+    clamp(5rem, 10vw, 8rem) 0 0 50%;
+
+  padding: clamp(3rem, 6vw, 5rem);
+
+  transform: translateX(-50%);
+
+  background: var(--navy);
+  color: var(--background);
+
+  border-radius: var(--radius);
+}
+
+.case-results .eyebrow {
+  color: inherit;
+
+  opacity: 0.7;
+}
+
+.case-results__heading {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.7fr) 2fr;
+
+  gap: 2rem;
+}
+
+.case-results__heading h2 {
+  margin-bottom: 0;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 0;
+
+  margin-top: 3.5rem;
+
+  border-top: 1px solid rgba(250, 249, 246, 0.70);
+  border-bottom: 1px solid rgba(250, 249, 246, 0.35);
+}
+
+.metric {
+  padding: 2rem 1.25rem 2rem 0;
+
+  border-right: 1px solid rgba(250, 249, 246, 0.22);
+}
+
+.metric:not(:first-child) {
+  padding-left: 1.25rem;
+}
+
+.metric:last-child {
+  border-right: 0;
+}
+
+.metric__value {
+  margin-bottom: 0.65rem;
+
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+
+  white-space: nowrap;
+}
+
+.metric__label {
+  margin: 0;
+
+  font-size: 0.75rem;
+  line-height: 1.55;
+
+  opacity: 0.76;
+}
+
+.case-results__detail {
+  max-width: 43rem;
+
+  margin: 2rem 0 0 auto;
+
+  font-size: 0.9rem;
+
+  opacity: 0.86;
+}
+
+
+/* =========================================================
+   COMPARISON SECTIONS
+   ========================================================= */
+
+.comparison-section {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+
+  border-bottom: var(--rule-subtle);
+}
+
+.comparison-section__heading,
+.process-section__heading {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.7fr) 2fr;
+
+  gap: 2rem;
+
+  margin-bottom: 2.5rem;
+}
+
+.comparison-section__heading .eyebrow,
+.process-section__heading .eyebrow {
+  margin: 0.35rem 0 0;
+}
+
+.comparison-section__heading h2,
+.process-section__heading h2 {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   COMPARISON CONTROLS
+   ========================================================= */
+
+.comparison-controls {
+  display: none;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+
+  border-bottom: var(--rule-subtle);
+}
+
+.has-case-study-js .comparison-controls {
+  display: flex;
+}
+
+.comparison-controls__prompt {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.comparison-controls__buttons {
+  display: flex;
+
+  gap: 0.5rem;
+}
+
+.comparison-controls button {
+  padding: 0.65rem 0.9rem;
+
+  border: 1px solid rgba(20, 38, 61, 0.28);
+  border-radius: var(--radius);
+
+  background: transparent;
+  color: var(--navy);
+
+  font: 600 0.72rem/1 var(--font-sans);
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.1s ease;
+}
+
+.comparison-controls button:hover {
+  border-color: var(--navy);
+}
+
+.comparison-controls button[aria-pressed="true"] {
+  background: var(--navy);
+  color: var(--background);
+
+  border-color: var(--navy);
+}
+
+.comparison-controls button:active {
+  transform: translateY(1px);
+}
+
+
+/* =========================================================
+   COMPARISON IMAGES
+   ========================================================= */
+
+.comparison-panels {
+  width: min(var(--wide-content-width),
+      calc(100vw - 3rem));
+
+  margin-left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.comparison-panel+.comparison-panel {
+  margin-top: 2.5rem;
+}
+
+.has-case-study-js .comparison-panel[hidden] {
+  display: none;
+}
+
+.comparison-panel img {
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+  object-position: top center;
+
+  background: #ffffff;
+
+  box-shadow: 0 1rem 3rem rgba(20, 38, 61, 0.08);
+}
+
+
+/* =========================================================
+   CUSTOMER JOURNEY
+   ========================================================= */
+
+.journey-flow {
+  margin: 2.5rem 0 0;
+  padding: 0;
+
+  list-style: none;
+
+  border-top: var(--rule);
+}
+
+.journey-flow li {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+
+  gap: 1.25rem;
+
+  padding: 1.4rem 0;
+
+  border-bottom: var(--rule-subtle);
+}
+
+.journey-flow>li>span {
+  color: rgba(20, 38, 61, 0.5);
+
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+}
+
+.journey-flow h3 {
+  margin-bottom: 0.3rem;
+
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.journey-flow p {
+  margin: 0;
+
+  font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   WORKSTREAMS
+   ========================================================= */
+
+.process-section {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+
+  border-bottom: var(--rule-subtle);
+}
+
+.workstream-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 0.75rem;
+}
+
+.workstream {
+  min-height: 15rem;
+
+  padding: 1.7rem;
+
+  border: 1px solid rgba(20, 38, 61, 0.15);
+  border-radius: var(--radius);
+}
+
+.workstream--navy {
+  background: var(--navy);
+  color: var(--background);
+
+  border-color: var(--navy);
+}
+
+.workstream__number {
+  margin-bottom: 2rem;
+
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+
+  line-height: 1;
+
+  opacity: 0.32;
+}
+
+.workstream h3 {
+  margin-bottom: 0.75rem;
+
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.workstream>p:last-child {
+  margin-bottom: 0;
+
+  font-size: 0.86rem;
+  line-height: 1.65;
+
+  opacity: 0.82;
+}
+
+
+/* =========================================================
+   CLOSE
+   ========================================================= */
+
+.case-close {
+  margin-top: clamp(5rem, 10vw, 8rem);
+
+  padding: clamp(3rem, 7vw, 5rem);
+
+  background: var(--navy);
+  color: var(--background);
+
+  border-radius: var(--radius);
+}
+
+.case-close .eyebrow {
+  color: inherit;
+
+  opacity: 0.7;
+}
+
+.case-close h2 {
+  max-width: 20ch;
+}
+
+.case-close>p:last-of-type {
+  max-width: 43rem;
+
+  opacity: 0.86;
+}
+
+.case-close__links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 1rem 1.5rem;
+
+  margin-top: 2.5rem;
+}
+
+.case-close__links a {
+  color: inherit;
+}
+
+
+/* =========================================================
+   MEASUREMENT NOTE
+   ========================================================= */
+
+.measurement-note {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.7fr) 2fr;
+
+  gap: 2rem;
+
+  padding: 3rem 0 0;
+
+  color: var(--muted);
+}
+
+.measurement-note h2 {
+  margin: 0;
+
+  color: var(--navy);
+
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.measurement-note p {
+  max-width: 43rem;
+
+  font-size: 0.72rem;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 56rem) {
+
+  /* =========================================================
+     HERO
+     ========================================================= */
+
+  .case-hero {
+    gap: 1.25rem 1.5rem;
+
+    padding-bottom: 3.5rem;
+  }
+
+  .case-hero h1 {
+    font-size: clamp(2.4rem, 6vw, 3.5rem);
+  }
+
+
+  /* =========================================================
+     SECTIONS
+     ========================================================= */
+
+  .case-section {
+    gap: 1.5rem;
+
+    padding: 4rem 0;
+  }
+
+  .comparison-section,
+  .process-section {
+    padding: 4.5rem 0;
+  }
+
+  .case-results__heading,
+  .comparison-section__heading,
+  .process-section__heading {
+    gap: 1.5rem;
+  }
+
+
+  /* =========================================================
+     META + RESULTS
+     ========================================================= */
+
+  .case-meta,
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .case-results {
+    padding: 3rem 2rem;
+  }
+
+  .metric {
+    padding: 1.5rem 1rem 1.5rem 0;
+  }
+
+  .metric:not(:first-child) {
+    padding-left: 1rem;
+  }
+
+  .metric:nth-child(2) {
+    border-right: 0;
+  }
+
+  .metric:nth-child(n + 3) {
+    border-top: 1px solid rgba(250, 249, 246, 0.22);
+  }
+
+  .metric:nth-child(3) {
+    padding-left: 0;
+  }
+
+  .metric__value {
+    font-size: clamp(1.7rem, 4vw, 2.2rem);
+  }
+
+
+  /* =========================================================
+     WORKSTREAM CARDS
+     ========================================================= */
+
+  .workstream {
+    min-height: 13rem;
+
+    padding: 1.4rem;
+  }
+
+  .workstream__number {
+    margin-bottom: 1.25rem;
+
+    font-size: 2.1rem;
+  }
+
+  .workstream h3 {
+    font-size: 1.15rem;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 42rem) {
+
+  /* =========================================================
+     MOBILE LAYOUT
+     ========================================================= */
+
+  .case-hero,
+  .case-section,
+  .case-results__heading,
+  .comparison-section__heading,
+  .process-section__heading,
+  .measurement-note {
+    grid-template-columns: 1fr;
+
+    gap: 1rem;
+  }
+
+  .case-hero>.eyebrow,
+  .case-hero h1,
+  .case-hero__lead,
+  .case-meta {
+    grid-column: 1;
+  }
+
+
+  /* =========================================================
+     HERO
+     ========================================================= */
+
+  .case-hero {
+    padding-bottom: 2.75rem;
+  }
+
+  .case-hero h1 {
+    max-width: none;
+
+    font-size: clamp(2.35rem, 11vw, 3.4rem);
+  }
+
+  .case-hero__lead {
+    margin-top: 0.5rem;
+
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .case-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 1rem;
+
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+  }
+
+
+  /* =========================================================
+     MAIN SECTION SPACING
+     ========================================================= */
+
+  .case-section {
+    padding: 3rem 0;
+  }
+
+  .comparison-section,
+  .process-section {
+    padding: 3.5rem 0;
+  }
+
+  .case-section__body h2,
+  .comparison-section__heading h2,
+  .process-section__heading h2,
+  .case-results__heading h2,
+  .case-close h2 {
+    max-width: none;
+
+    font-size: clamp(1.7rem, 7.5vw, 2.2rem);
+    line-height: 1.2;
+  }
+
+  .case-section__body h2 {
+    margin-bottom: 1rem;
+  }
+
+  .case-section__body p {
+    margin-bottom: 1rem;
+  }
+
+  .case-section__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .case-intro {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+
+  /* =========================================================
+     IMAGES
+     ========================================================= */
+
+  .case-hero-image,
+  .case-results,
+  .comparison-panels {
+    width: calc(100vw - 2rem);
+  }
+
+  .comparison-panel img {
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+    object-position: top center;
+  }
+
+
+  /* =========================================================
+     RESULTS
+     ========================================================= */
+
+  .case-results {
+    margin-top: 3.5rem;
+
+    padding: 2rem 1.1rem;
+
+    border-radius: 8px;
+  }
+
+  .metric-grid {
+    margin-top: 2.25rem;
+  }
+
+  .metric {
+    padding: 1.25rem 0.6rem 1.25rem 0;
+  }
+
+  .metric:not(:first-child) {
+    padding-left: 0.6rem;
+  }
+
+  .metric:nth-child(3) {
+    padding-left: 0;
+  }
+
+  .metric__value {
+    font-size: clamp(1.4rem, 6vw, 1.65rem);
+
+    white-space: normal;
+  }
+
+  .metric__label {
+    font-size: 0.7rem;
+    line-height: 1.45;
+  }
+
+  .case-results__detail {
+    margin-top: 1.5rem;
+
+    font-size: 0.84rem;
+    line-height: 1.65;
+  }
+
+
+  /* =========================================================
+     BULLET LIST
+     ========================================================= */
+
+  .case-list {
+    margin-top: 1.5rem;
+  }
+
+  .case-list li {
+    padding: 0.7rem 0 0.7rem 1.3rem;
+
+    line-height: 1.6;
+  }
+
+  .case-list li::before {
+    top: 1.25rem;
+
+    width: 0.45rem;
+  }
+
+
+  /* =========================================================
+     CUSTOMER JOURNEY
+     ========================================================= */
+
+  .journey-flow {
+    margin-top: 1.75rem;
+  }
+
+  .journey-flow li {
+    grid-template-columns: 2.75rem 1fr;
+
+    gap: 0.75rem;
+
+    padding: 1rem 0;
+  }
+
+  .journey-flow>li>span {
+    font-size: 1.1rem;
+  }
+
+  .journey-flow h3 {
+    margin-bottom: 0.2rem;
+  }
+
+  .journey-flow p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+
+  /* =========================================================
+     COMPARISON CONTROLS
+     ========================================================= */
+
+  .comparison-section__heading {
+    margin-bottom: 1.75rem;
+  }
+
+  .comparison-controls {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 0.75rem;
+
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .comparison-controls__buttons {
+    width: 100%;
+  }
+
+  .comparison-controls button {
+    flex: 1;
+
+    padding: 0.7rem 0.6rem;
+  }
+
+
+  /* =========================================================
+   WORKSTREAM CARDS
+   ========================================================= */
+
+  .workstream-grid {
+    grid-template-columns: 1fr;
+
+    gap: 0.6rem;
+  }
+
+  .workstream {
+    min-height: auto;
+
+    display: grid;
+    grid-template-columns: 2.25rem 1fr;
+
+    align-items: center;
+
+    column-gap: 0.85rem;
+
+    padding: 1.25rem;
+  }
+
+  .workstream__number {
+    margin: 0;
+
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+
+  .workstream h3 {
+    margin: 0;
+
+    padding-left: 0.85rem;
+
+    border-left: 1px solid rgba(20, 38, 61, 0.22);
+
+    font-size: 1.1rem;
+  }
+
+  .workstream--navy h3 {
+    border-left-color: rgba(250, 249, 246, 0.28);
+  }
+
+  .workstream>p:last-child {
+    grid-column: 1 / -1;
+
+    margin-top: 0.85rem;
+
+    font-size: 0.84rem;
+    line-height: 1.6;
+  }
+
+
+  /* =========================================================
+     CLOSE
+     ========================================================= */
+
+  .case-close {
+    margin-top: 3.5rem;
+
+    padding: 2.25rem 1.25rem;
+  }
+
+  .case-close__links {
+    margin-top: 1.75rem;
+  }
+
+
+  /* =========================================================
+     MEASUREMENT NOTE
+     ========================================================= */
+
+  .measurement-note {
+    padding-top: 2rem;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .comparison-controls button {
+    transition: none;
+  }
+
+}

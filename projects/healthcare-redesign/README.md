@@ -2,11 +2,11 @@
 
 ## Files to add
 
-Create `/projects/hjw/` in the patrikbandak.com project and copy these files into it:
+Create `/projects/healthcare-redesign/` in the patrikbandak.com project and copy these files into it:
 
 - `index.html`
-- `hjw-case-study.css`
-- `hjw-case-study.js`
+- `healthcare-redesign-case-study.css`
+- `healthcare-redesign-case-study.js`
 - the complete `assets/` folder
 
 The page uses the site's existing `/styles.css`, `/js/components.js`, shared header, shared footer, favicon, and logo.
@@ -17,8 +17,8 @@ Copy the `<article>` from `projects-page-entry.html` into the existing `.project
 
 ## URLs
 
-- Case study: `/projects/hjw/`
-- Public canonical URL: `https://www.patrikbandak.com/projects/hjw/`
+- Case study: `/projects/healthcare-redesign/`
+- Public canonical URL: `https://www.patrikbandak.com/projects/healthcare-redesign/`
 
 ## Publishing notes
 
