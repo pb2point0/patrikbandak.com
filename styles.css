@@ -1041,6 +1041,15 @@ h2 {
 
 }
 
+@media (min-width: 42.01rem) and (max-width: 66rem) {
+
+  .nav-dropdown__menu {
+    right: 0;
+    left: auto;
+  }
+
+}
+
 
 /* =========================================================
    MOBILE

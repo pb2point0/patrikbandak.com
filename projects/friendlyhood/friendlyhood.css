@@ -1,0 +1,12 @@
+.case-study-page--friendlyhood .case-hero-image {
+  width: 80%;
+}
+
+.case-study-page--friendlyhood .case-hero-image img {
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.case-study-page--friendlyhood .case-hero-image--mobile {
+  width: min(80%, 24rem);
+}

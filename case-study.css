@@ -466,6 +466,167 @@
   box-shadow: 0 1rem 3rem rgba(20, 38, 61, 0.08);
 }
 
+.comparison-panel--portrait {
+  width: min(24rem, 100%);
+  margin-inline: auto;
+}
+
+.case-study-page--site .comparison-section__content {
+  min-width: 0;
+}
+
+
+/* Keep comparison media inside the right-hand content column. */
+
+.case-study-page--site .comparison-section__content .comparison-panels {
+  width: 100%;
+  max-width: 100%;
+
+  margin: 2rem 0 0;
+
+  transform: none;
+}
+
+
+/* Mobile screenshot. */
+
+.case-study-page--site .comparison-panel--portrait {
+  width: min(21rem, 100%);
+
+  margin-left: 0;
+  margin-right: auto;
+}
+
+
+/* Landscape screenshots. */
+
+.case-study-page--site .comparison-panel:not(.comparison-panel--portrait) {
+  width: fit-content;
+  max-width: 75%;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.case-study-page--site .comparison-panel:not(.comparison-panel--portrait) img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+
+.case-study-page--site .comparison-panels+.case-section__body {
+  margin-top: 2.5rem;
+}
+
+
+/* =========================================================
+   MENU X DEMO
+   ========================================================= */
+
+.case-study-page--site .menu-x-demo {
+  width: 11rem;
+  max-width: 100%;
+
+  margin: 2rem auto 0;
+
+  text-align: center;
+}
+
+
+.case-study-page--site .menu-x-demo__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 8rem;
+
+  padding: 0;
+
+  border: var(--rule-subtle);
+  border-radius: var(--radius);
+
+  background: var(--background);
+
+  box-shadow: 0 0.5rem 1.5rem rgba(20, 38, 61, 0.07);
+
+  cursor: pointer;
+}
+
+
+.case-study-page--site .menu-x-demo__icon {
+  position: relative;
+
+  display: block;
+  flex: none;
+
+  width: 3.6rem;
+  height: 3.6rem;
+
+  transform: rotate(var(--menu-x-demo-rotation, 0deg));
+
+  transition: transform 0.3s ease;
+}
+
+
+.case-study-page--site .menu-x-demo__line {
+  position: absolute;
+  left: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 3px;
+
+  background: var(--navy);
+
+  transform-origin: center;
+
+  transition:
+    top 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.case-study-page--site .menu-x-demo__line:first-child {
+  top: calc(50% - 9px);
+}
+
+
+.case-study-page--site .menu-x-demo__line:last-child {
+  top: calc(50% + 9px);
+}
+
+
+.case-study-page--site .menu-x-demo.is-open .menu-x-demo__line:first-child {
+  top: 50%;
+
+  transform: rotate(45deg);
+}
+
+
+.case-study-page--site .menu-x-demo.is-open .menu-x-demo__line:last-child {
+  top: 50%;
+
+  transform: rotate(-45deg);
+}
+
+
+.case-study-page--site .menu-x-demo__caption {
+  margin-top: 0.8rem;
+
+  color: var(--muted);
+
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+
+.eyebrow--mixed-case {
+  text-transform: none;
+}
+
 
 /* =========================================================
    CUSTOMER JOURNEY
@@ -800,6 +961,10 @@
     font-size: clamp(2.35rem, 11vw, 3.4rem);
   }
 
+  .case-study-page--site .case-hero h1 {
+    font-size: clamp(1.875rem, 9vw, 3.4rem);
+  }
+
   .case-hero__lead {
     margin-top: 0.5rem;
 
@@ -852,6 +1017,7 @@
   .case-section__body p:last-child {
     margin-bottom: 0;
   }
+
 
   .case-intro {
     font-size: 1rem;
@@ -1086,12 +1252,29 @@
 
 
 /* =========================================================
+   HEALTHCARE CASE STUDY IMAGES
+   ========================================================= */
+
+.case-study-page--healthcare .case-hero-image,
+.case-study-page--healthcare .comparison-panels {
+  width: 80%;
+  margin-inline: auto;
+  transform: none;
+}
+
+
+/* =========================================================
    REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
   .comparison-controls button {
+    transition: none;
+  }
+
+  .case-study-page--site .menu-x-demo__icon,
+  .case-study-page--site .menu-x-demo__line {
     transition: none;
   }
 

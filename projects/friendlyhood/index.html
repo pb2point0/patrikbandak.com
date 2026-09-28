@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="How a Berlin neighborhood map became an experiment in comparable ratings, public data, transparent methodology, and knowing when to stop.">
+  <meta name="theme-color" content="#faf9f6">
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon.png">
+  <link rel="canonical" href="https://www.patrikbandak.com/projects/friendlyhood/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Building Friendlyhood | Patrik Bandak">
+  <meta property="og:description"
+    content="A neighborhood comparison project that got more interesting when the ratings needed an explanation.">
+  <meta property="og:url" content="https://www.patrikbandak.com/projects/friendlyhood/">
+  <meta property="og:image"
+    content="https://www.patrikbandak.com/projects/friendlyhood/assets/friendlyhood-berlin-v2.webp">
+  <title>Building Friendlyhood | Patrik Bandak</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/case-study.css">
+  <link rel="stylesheet" href="./friendlyhood.css">
+  <script src="/js/components.js" defer></script>
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"CreativeWork","name":"Building Friendlyhood","author":{"@type":"Person","name":"Patrik Bandak","url":"https://www.patrikbandak.com/"},"about":"The evolution of a neighborhood comparison product and its scoring methodology","url":"https://www.patrikbandak.com/projects/friendlyhood/"}
+  </script>
+</head>
+
+<body class="case-study-page case-study-page--friendlyhood">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="page-shell">
+    <div id="site-header"></div>
+    <main id="main-content" class="page-content case-study">
+      <header class="case-hero">
+        <p class="eyebrow">Friendlyhood</p>
+        <h1>Where should I live?</h1>
+        <p class="case-hero__lead">Friendlyhood began as a personal project to learn backend development: APIs,
+          databases, and how real-world data moves through a product. At the time, I was considering an EMBA in Berlin,
+          so I gave that learning a question I actually cared about: where would I live if I moved there? I ultimately
+          decided not to pursue the program, but the project had already led to a harder and much more interesting
+          question: how do you put a number on a place without pretending the number is the whole truth?</p>
+        <dl class="case-meta" aria-label="Project details">
+          <div>
+            <dt>Role</dt>
+            <dd>Product direction, methodology, validation</dd>
+          </div>
+          <div>
+            <dt>Started</dt>
+            <dd>Berlin, 2026</dd>
+          </div>
+          <div>
+            <dt>Current scope</dt>
+            <dd>Berlin · New York City</dd>
+          </div>
+          <div>
+            <dt>Status</dt>
+            <dd>Personal project, still evolving</dd>
+          </div>
+        </dl>
+      </header>
+
+      <section class="case-section" aria-labelledby="beginning-title">
+        <div class="case-section__label">
+          <p class="eyebrow">The beginning</p>
+        </div>
+        <div class="case-section__body">
+          <h2 id="beginning-title">A map made the question feel answerable.</h2>
+          <p class="case-intro">I was exploring a move to Berlin and wanted a way to compare neighborhoods against the
+            things that mattered to me. The first version had a map, category filters, a commute input, and a ranked
+            list. Pick a priority and the colors changed.</p>
+          <p>It was useful for exploration. It was also easy to read too much into. The early data leaned heavily on
+            OpenStreetMap points of interest and city-relative ranks. A bright patch on the map looked precise even when
+            the underlying category was a rough proxy. The interface made comparison easy before I had made its limits
+            equally easy to understand.</p>
+        </div>
+      </section>
+      <figure class="case-hero-image">
+        <img src="./assets/friendlyhood-early-berlin-a5d9629.webp" width="1360" height="820"
+          alt="Early Friendlyhood Berlin map with category chips, ranked neighborhoods, and colored neighborhood boundaries"
+          loading="lazy">
+        <figcaption>The recovered Berlin version at commit <code>a5d9629</code>, before the published V2 methodology.
+          This is the actual interface, rendered from that commit.</figcaption>
+      </figure>
+
+      <section class="case-section" aria-labelledby="ratings-title">
+        <div class="case-section__label">
+          <p class="eyebrow">Berlin V2 Beta</p>
+        </div>
+        <div class="case-section__body">
+          <h2 id="ratings-title">The ratings needed a method, not just a legend.</h2>
+          <p>Berlin's V2 release moved to 97 official neighborhood geometries and 11 characteristics. Its published
+            ratings join those areas by stable IDs and combine documented Berlin, transit, and OpenStreetMap evidence.
+            The scores are generated offline; changing a preference in the browser does not quietly recalculate the
+            source data.</p>
+          <p>I also had to separate two ideas that are easy to collapse: a category score describes a characteristic,
+            while the preference-fit number reflects what someone selected. More nightlife is not a universally “better”
+            neighborhood. The map can help you ask better questions; it cannot decide where you should live.</p>
+        </div>
+      </section>
+      <figure class="case-hero-image">
+        <img src="./assets/friendlyhood-berlin-v2.webp" width="1360" height="820"
+          alt="Current Berlin V2 interface showing eleven characteristics, a green-space preference, ranked neighborhoods, and the city map"
+          loading="lazy">
+        <figcaption>Berlin V2 Beta in the current application. The selected preference changes the comparison; it does
+          not turn the rating into a recommendation.</figcaption>
+      </figure>
+
+      <section class="case-section" aria-labelledby="method-title">
+        <div class="case-section__label">
+          <p class="eyebrow">What a number means</p>
+        </div>
+        <div class="case-section__body">
+          <h2 id="method-title">Confidence belongs next to the score.</h2>
+          <p>The methodology became part of the product, with source roles, component weights, limitations, and
+            confidence labels available in the interface. In Berlin V2, five categories are marked Low confidence, five
+            Medium, and Safety has no assigned confidence label. “Not assigned” is a missing claim, not a reassuring
+            synonym for Medium.</p>
+          <p>A high score is not proof that a street is right for you. It describes a city-relative signal at
+            neighborhood scale. The confidence label describes the evidence behind that signal, not the probability that
+            you will like living there.</p>
+        </div>
+      </section>
+      <figure class="case-hero-image case-hero-image--method">
+        <img src="./assets/friendlyhood-berlin-confidence.webp" width="920" height="685"
+          alt="Berlin How it works dialog explaining comparative ratings and Low, Medium, and Not assigned confidence states"
+          loading="lazy">
+        <figcaption>The current Berlin explanation makes the distinction between score and evidence strength visible.
+        </figcaption>
+      </figure>
+
+      <section class="case-section" aria-labelledby="v3-title">
+        <div class="case-section__label">
+          <p class="eyebrow">The next method</p>
+        </div>
+        <div class="case-section__body">
+          <h2 id="v3-title">The data work got more explicit. The scores did not get a free pass.</h2>
+          <p>V3 is a separate, unfinished methodology and pipeline. It records the route from a raw snapshot through a
+            source manifest, deterministic transformation, component metric, and frozen city baseline to a score.
+            Schemas, validation, acquisition receipts, and tests make that route inspectable. The Berlin V3 score
+            artifact is still marked <code>not_generated</code> and <code>publishable: false</code>; the live Berlin
+            experience uses V2.</p>
+          <p>I split the V3 specification into a city-independent Core and city-specific bindings. Core defines what a
+            category means and how it is calculated. Each city must supply suitable geography, sources, mappings, and a
+            normalization baseline. That separation mattered as soon as I tried a second city.</p>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="nyc-title">
+        <div class="case-section__label">
+          <p class="eyebrow">New York City</p>
+        </div>
+        <div class="case-section__body">
+          <h2 id="nyc-title">A second city made the gaps harder to ignore.</h2>
+          <p>NYC started with official 2020 Neighborhood Tabulation Area geography: 262 areas, including parks,
+            airports, and other places nobody should mistake for residential recommendations. City-specific V3 research
+            and foundation work followed, but the binding still records unapproved choices such as the residential area
+            selection, analysis coordinate system, and population sampling. Those are not small blanks to fill with
+            vibes.</p>
+          <p>To keep the city explorable, I made a separate NYC MVP proxy release. It uses disclosed public-data density
+            proxies across 11 categories, with every category explicitly Low confidence. The proxies are deterministic
+            and city-relative, but they do not activate canonical V3 or claim to measure everything the V3 categories
+            intend. For example, the Food proxy reflects restaurant supply, not the full grocery-access and quality
+            model.</p>
+        </div>
+      </section>
+      <figure class="case-hero-image">
+        <img src="./assets/friendlyhood-nyc-proxy.webp" width="1360" height="820"
+          alt="Current New York City comparison with official NTA geography, the Food proxy selected, and city-relative ranked areas"
+          loading="lazy">
+        <figcaption>NYC in the current source: a useful comparison surface, labeled as a low-confidence MVP proxy rather
+          than a completed V3 city.</figcaption>
+      </figure>
+
+      <section class="case-section" aria-labelledby="build-title">
+        <div class="case-section__label">
+          <p class="eyebrow">Building it</p>
+        </div>
+        <div class="case-section__body">
+          <h2 id="build-title">I tried a stricter way of working with agents.</h2>
+          <p>For part of the V3 work, I set up specialized Codex roles. Research gathered evidence and gaps. A
+            Methodology Steward classified proposals against the approved rules. Implementation worked from explicitly
+            approved scope. Audit checked the result against the method, the work order, and actual behavior. I kept
+            Product Owner authority over methodology changes and approvals.</p>
+          <p>The useful rule was a stopping rule: when the approved method did not determine a needed value,
+            implementation was supposed to stop and return the question. A nightlife diversity work order even named the
+            unresolved catchment, class mapping, deduplication, and completeness choices rather than letting code invent
+            them. The experiment made uncertainty visible in the workflow. It did not make the agents a permanent
+            product architecture.</p>
+          <p>Validation also moved beyond the happy path. The repository checks data joins, scoring behavior, and
+            interface flows; later reliability work added recovery for map and storage failures, a selectable basic map
+            when the richer map cannot start, and more usable search and mobile layouts. A passing test cannot make a
+            weak proxy strong, but it can catch a broken release.</p>
+        </div>
+      </section>
+      <figure class="case-hero-image case-hero-image--mobile">
+        <img src="./assets/friendlyhood-nyc-mobile.webp" width="390" height="844"
+          alt="Friendlyhood on a narrow mobile screen with NYC map and accessible category drawer" loading="lazy">
+        <figcaption>The current NYC mobile view keeps the map and category controls usable on a narrow screen.
+        </figcaption>
+      </figure>
+
+      <section class="case-close" aria-labelledby="close-title">
+        <p class="eyebrow">Still in progress</p>
+        <h2 id="close-title">A better question, with a more honest answer.</h2>
+        <p>Friendlyhood now lets me compare neighborhoods in two cities and inspect more of the evidence behind the
+          colors. It is still a personal product in progress. Berlin V2 is a beta release. NYC's current ratings are
+          low-confidence proxies. Canonical V3 remains incomplete until its sources, city decisions, baselines, and
+          quality gates are resolved.</p>
+        <p>I still want the map to make exploration easier. I just want it to be equally clear where the map should stop
+          talking.</p>
+        <div class="case-close__links">
+          <a href="https://friendlyhood.patrikbandak.com/" target="_blank" rel="noopener noreferrer">Explore
+            Friendlyhood ↗</a>
+          <a href="/projects/">Back to projects</a>
+        </div>
+      </section>
+      <aside class="measurement-note" aria-labelledby="sources-title">
+        <h2 id="sources-title">Source note</h2>
+        <p>Project chronology follows Friendlyhood Git history through September 23, 2026. The early screenshot is from
+          commit <code>a5d9629</code>. The Berlin V2 view was captured from the live site on September 27, 2026; the
+          other current views were rendered from <code>9f52007</code>. Release and methodology claims follow the
+          checked-in README, V2 and NYC MVP metadata, Core V3 specification, city binding, work order, agent
+          definitions, and portfolio readiness review.</p>
+      </aside>
+    </main>
+    <div id="site-footer"></div>
+  </div>
+</body>
+
+</html>
