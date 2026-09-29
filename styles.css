@@ -15,6 +15,18 @@
   --rule-subtle: 1px solid rgba(20, 38, 61, 0.18);
   --radius: 10px;
 
+  --prose-font-size: 0.9375rem;
+  --prose-line-height: 1.75;
+  --lead-font-size: 1.0625rem;
+  --heading-copy-gap: 1.25rem;
+  --expanded-content-gap: 1.25rem;
+
+  --case-media-max-width: 45rem;
+
+  --motion-quick: 100ms;
+  --motion-standard: 280ms;
+  --motion-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
   --font-serif: "Libre Baskerville", Georgia, serif;
   --font-sans: "Manrope", Arial, sans-serif;
 
@@ -359,8 +371,8 @@ h2 {
   display: grid;
   gap: 0.75rem;
 
-  font-size: 15px;
-  line-height: 1.75;
+  font-size: var(--prose-font-size);
+  line-height: var(--prose-line-height);
 }
 
 
@@ -639,7 +651,7 @@ h2 {
 
   gap: clamp(1rem, 2.5vw, 2rem);
 
-  padding: 0 1.75rem clamp(2.5rem, 4vw, 3.5rem);
+  padding: var(--expanded-content-gap) 1.75rem clamp(2.5rem, 4vw, 3.5rem);
 
   opacity: 0;
   transform: translateY(-6px);
@@ -760,7 +772,7 @@ h2 {
 
 .experience-entry h2,
 .project-entry h2 {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.6rem;
 
   font-size: 1rem;
   font-weight: 700;
@@ -771,6 +783,10 @@ h2 {
 .experience-entry p,
 .project-entry p {
   margin-bottom: 0;
+}
+
+.project-entry .eyebrow {
+  margin-bottom: 0.65rem;
 }
 
 .experience-meta>p {
@@ -805,6 +821,11 @@ h2 {
 }
 
 .project-entry .project-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+
   color: var(--navy);
 
   font-size: 0.78rem;
@@ -1056,6 +1077,12 @@ h2 {
    ========================================================= */
 
 @media (max-width: 42rem) {
+
+  :root {
+    --prose-font-size: 1rem;
+    --heading-copy-gap: 1rem;
+    --expanded-content-gap: 1.25rem;
+  }
 
   /* =========================================================
      SITE LAYOUT
@@ -1420,8 +1447,8 @@ h2 {
   .about-essay {
     max-width: none;
 
-    font-size: 16px;
-    line-height: 1.75;
+    font-size: var(--prose-font-size);
+    line-height: var(--prose-line-height);
   }
 
 
@@ -1518,7 +1545,7 @@ h2 {
   .about-chapter-panel-inner {
     display: block;
 
-    padding: 0 1.15rem 2.25rem;
+    padding: var(--expanded-content-gap) 1.15rem 2.25rem;
   }
 
 
@@ -1591,6 +1618,7 @@ h2 {
   }
 
   .project-entry .project-status {
+    align-items: flex-start;
     text-align: left;
   }
 
@@ -1644,6 +1672,26 @@ h2 {
 
   .footer-quip {
     text-align: right;
+  }
+
+}
+
+
+/*
+  Preserve the authored mobile line breaks at normal phone
+  widths, but allow them to wrap safely in unusually narrow
+  viewports and enlarged-text layouts.
+*/
+
+@media (max-width: 19rem) {
+
+  .home-intro h1 span,
+  .page-heading h1 span {
+    white-space: normal;
+  }
+
+  .about-heading h1 {
+    white-space: normal;
   }
 
 }

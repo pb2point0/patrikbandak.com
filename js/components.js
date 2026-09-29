@@ -14,6 +14,24 @@ loadComponent("site-header", "/components/header.html");
 loadComponent("site-footer", "/components/footer.html");
 
 
+/*
+  Case-study behavior is loaded once, automatically,
+  whenever the shared case-study shell is present.
+*/
+
+if (document.querySelector(".case-study")) {
+  const caseStudyScript =
+    document.createElement("script");
+
+  caseStudyScript.src =
+    "/js/case-study.js";
+
+  document.head.appendChild(
+    caseStudyScript
+  );
+}
+
+
 /* =========================================================
    CLICK INTERACTIONS
    ========================================================= */
