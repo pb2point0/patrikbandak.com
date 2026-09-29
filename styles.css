@@ -677,6 +677,24 @@ h2 {
   width: min(100%, 42rem);
 }
 
+.about-chapter-copy h3 {
+  margin: 2rem 0 0.85rem;
+
+  color: var(--navy);
+
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.2;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.about-chapter-copy h3:first-child {
+  margin-top: 0.25rem;
+}
+
 
 .about-chapter-copy p {
   margin: 0 0 1.6rem;
