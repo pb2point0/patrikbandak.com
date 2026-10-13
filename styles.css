@@ -814,6 +814,10 @@ h2 {
   line-height: 1.6;
 }
 
+.experience-details>p:not(.role)+p {
+  margin-top: 1rem;
+}
+
 .experience-details .role {
   margin-bottom: 0.75rem;
 
@@ -825,7 +829,7 @@ h2 {
   line-height: 1.55;
 }
 
-.experience-details>p:last-child,
+.experience-details>p:not(.role),
 .project-entry>div>p {
   max-width: 42rem;
 
@@ -1628,7 +1632,7 @@ h2 {
     line-height: 1.5;
   }
 
-  .experience-details>p:last-child {
+  .experience-details>p:not(.role) {
     max-width: none;
 
     font-size: 0.95rem;
@@ -1692,6 +1696,7 @@ h2 {
     text-align: right;
   }
 
+<<<<<<< HEAD
 }
 
 
@@ -1713,3 +1718,6 @@ h2 {
   }
 
 }
+=======
+}
+>>>>>>> 69514b8 (Updated Chapters 1 and 2)
