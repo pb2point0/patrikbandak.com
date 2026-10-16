@@ -14,15 +14,20 @@
         accordion.querySelectorAll("[data-about-chapter]")
     );
 
+    const chapterLinks = Array.from(
+        document.querySelectorAll("[data-about-chapter-link]")
+    );
+
     const reduceMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
     );
 
     const panelAnimationTime = 500;
     const scrollDuration = 1400;
-    const scrollTopOffset = 16;
+    const scrollTopOffset = 32;
 
     let activeScrollFrame = null;
+    let activeSpyFrame = null;
 
 
     /* =========================================================
@@ -51,6 +56,47 @@
             trigger,
             panel
         };
+    }
+
+
+    function setActiveChapter(chapter) {
+        chapterLinks.forEach((link) => {
+            if (link.getAttribute("href") === `#${chapter.id}`) {
+                link.setAttribute("aria-current", "location");
+            } else {
+                link.removeAttribute("aria-current");
+            }
+        });
+    }
+
+
+    function updateActiveChapter() {
+        if (!chapters.length) {
+            return;
+        }
+
+        const readingLine = Math.min(window.innerHeight * 0.6, 540);
+        let currentChapter = chapters[0];
+
+        chapters.forEach((chapter) => {
+            if (chapter.getBoundingClientRect().top <= readingLine) {
+                currentChapter = chapter;
+            }
+        });
+
+        setActiveChapter(currentChapter);
+    }
+
+
+    function scheduleActiveUpdate() {
+        if (activeSpyFrame !== null) {
+            return;
+        }
+
+        activeSpyFrame = requestAnimationFrame(() => {
+            activeSpyFrame = null;
+            updateActiveChapter();
+        });
     }
 
 
@@ -339,65 +385,107 @@
 
 
     /* =========================================================
-       CLICK BEHAVIOR
+       CHAPTER SELECTION AND NAVIGATION
        ========================================================= */
 
-    chapters.forEach((chapter) => {
-        const { trigger } =
-            getChapterParts(chapter);
+    function selectChapter(chapter, allowClose = false) {
+        const { trigger } = getChapterParts(chapter);
 
         if (!trigger) {
             return;
         }
 
+        const alreadyOpen =
+            trigger.getAttribute("aria-expanded") === "true";
 
-        trigger.addEventListener("click", () => {
-            const alreadyOpen =
-                trigger.getAttribute(
-                    "aria-expanded"
-                ) === "true";
+        if (alreadyOpen && allowClose) {
+            if (activeScrollFrame !== null) {
+                cancelAnimationFrame(activeScrollFrame);
+                activeScrollFrame = null;
+            }
 
+            closeChapter(chapter);
+            scheduleActiveUpdate();
+            return;
+        }
 
-            /*
-              Clicking the currently open chapter closes it.
-            */
+        chapters.forEach((otherChapter) => {
+            if (otherChapter !== chapter) {
+                closeChapter(otherChapter);
+            }
+        });
 
-            if (alreadyOpen) {
-                if (activeScrollFrame) {
-                    cancelAnimationFrame(activeScrollFrame);
-                    activeScrollFrame = null;
-                }
+        setActiveChapter(chapter);
+        followChapterToTop(chapter);
 
-                closeChapter(chapter);
+        if (!alreadyOpen) {
+            openChapter(chapter);
+        }
+    }
 
+    chapters.forEach((chapter) => {
+        const { trigger } = getChapterParts(chapter);
+
+        trigger?.addEventListener("click", () => {
+            selectChapter(chapter, true);
+        });
+    });
+
+    chapterLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            const chapter = document.getElementById(
+                link.getAttribute("href").slice(1)
+            );
+
+            if (!chapter) {
                 return;
             }
 
-
-            /*
-              Close any other open chapter.
-            */
-
-            chapters.forEach((otherChapter) => {
-                if (otherChapter !== chapter) {
-                    closeChapter(otherChapter);
-                }
-            });
-
-
-            /*
-              Follow the chapter toward the top while
-              the accordion is rearranging the page.
-            */
-
-            followChapterToTop(chapter);
-
-
-            /*
-              Open the selected chapter.
-            */
-
-            openChapter(chapter);
+            event.preventDefault();
+            history.pushState(null, "", `#${chapter.id}`);
+            selectChapter(chapter);
         });
     });
+
+    function openLinkedChapter() {
+        const chapter = chapters.find(
+            (item) => `#${item.id}` === window.location.hash
+        );
+
+        if (!chapter) {
+            scheduleActiveUpdate();
+            return;
+        }
+
+        chapters.forEach((otherChapter) => {
+            if (otherChapter !== chapter) {
+                closeChapter(otherChapter, false);
+            }
+        });
+
+        openChapter(chapter, false);
+        setActiveChapter(chapter);
+
+        requestAnimationFrame(() => {
+            const previousScrollBehavior =
+                document.documentElement.style.scrollBehavior;
+
+            document.documentElement.style.scrollBehavior = "auto";
+            window.scrollTo(
+                0,
+                window.scrollY +
+                    chapter.getBoundingClientRect().top -
+                    scrollTopOffset
+            );
+            document.documentElement.style.scrollBehavior =
+                previousScrollBehavior;
+        });
+    }
+
+    window.addEventListener("scroll", scheduleActiveUpdate, { passive: true });
+    window.addEventListener("resize", scheduleActiveUpdate);
+    window.addEventListener("hashchange", openLinkedChapter);
+    window.addEventListener("popstate", openLinkedChapter);
+
+    openLinkedChapter();
 })();

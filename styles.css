@@ -358,18 +358,64 @@ h2 {
 }
 
 
-/* Let the chapter system use the full site content width. */
+/* Keep the essay inside the site's usual width, with a floating chapter rail. */
 
-.about-page-body>.about-essay {
-  grid-column: 1 / -1;
+.about-page-body {
+  grid-template-columns: minmax(11rem, 0.7fr) minmax(0, 2fr);
+  gap: 2rem;
+  align-items: start;
 }
 
+.about-page-body>.about-chapter-nav {
+  grid-column: 1;
+}
+
+.about-page-body>.about-essay {
+  grid-column: 2;
+}
+
+.about-chapter-nav {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+.about-chapter-nav a {
+  display: block;
+  width: 100%;
+
+  padding: 0.42rem 0 0.5rem;
+  border-bottom: 1px solid transparent;
+
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.about-chapter-nav a:hover,
+.about-chapter-nav a[aria-current="location"] {
+  border-bottom-color: var(--navy);
+  color: var(--navy);
+}
+
+.about-chapter-nav a[aria-current="location"] {
+  font-weight: 700;
+}
 
 .about-essay {
-  max-width: none;
+  min-width: 0;
 
   display: grid;
-  gap: 0.75rem;
+  gap: 2.25rem;
 
   font-size: var(--prose-font-size);
   line-height: var(--prose-line-height);
@@ -407,36 +453,7 @@ h2 {
 
   color: var(--text);
 
-  border: 1px solid rgba(20, 38, 61, 0.12);
-  border-radius: 10px;
-
-  overflow: hidden;
-
-  scroll-margin-top: 1rem;
-}
-
-
-/*
-   Chapter One gets the single dark editorial treatment.
-
-   The slight bleed lets it feel like a real section rather
-   than a card while keeping its internal grid aligned with
-   the rest of the site.
-*/
-
-.about-chapter--navy {
-  background: var(--navy);
-  color: var(--background);
-
-  border-color: var(--navy);
-}
-
-
-.about-chapter--navy .about-chapter-panel {
-  background: var(--background);
-  color: var(--text);
-
-  border-top: 1px solid rgba(20, 38, 61, 0.1);
+  scroll-margin-top: 2rem;
 }
 
 
@@ -448,17 +465,15 @@ h2 {
   width: 100%;
 
   display: grid;
-
   grid-template-columns:
-    minmax(5rem, 0.55fr) minmax(11rem, 0.95fr) minmax(15rem, 1.35fr) 1.25rem;
+    minmax(0, 1.1fr) minmax(0, 1fr) 1.25rem;
+  align-items: end;
+  gap: 1rem;
 
-  align-items: center;
-
-  gap: clamp(1rem, 2.5vw, 2rem);
-
-  padding: 1.25rem 1.75rem;
+  padding: 0 0 1.1rem;
 
   border: 0;
+  border-bottom: var(--rule-subtle);
 
   background: transparent;
   color: inherit;
@@ -473,31 +488,6 @@ h2 {
 }
 
 
-.about-chapter-number {
-  display: block;
-
-  align-self: center;
-
-  color: currentColor;
-
-  font-family: var(--font-serif);
-  font-size: clamp(3.5rem, 5vw, 4.5rem);
-  font-weight: 400;
-  line-height: 0.9;
-
-  letter-spacing: -0.075em;
-
-  opacity: 0.28;
-
-  font-variant-numeric: lining-nums tabular-nums;
-}
-
-
-.about-chapter--navy .about-chapter-number {
-  opacity: 0.72;
-}
-
-
 .about-chapter-meta {
   display: block;
 
@@ -508,10 +498,10 @@ h2 {
 .about-chapter-label {
   display: block;
 
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.35rem;
 
   font-family: var(--font-sans);
-  font-size: 0.66rem;
+  font-size: 0.64rem;
   font-weight: 700;
 
   line-height: 1.3;
@@ -519,17 +509,15 @@ h2 {
   letter-spacing: 0.16em;
   text-transform: uppercase;
 
-  opacity: 0.7;
+  color: var(--navy);
 }
 
 
 .about-chapter-title {
   display: block;
 
-  max-width: 12ch;
-
   font-family: var(--font-serif);
-  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  font-size: clamp(1.45rem, 2.5vw, 1.85rem);
   font-weight: 400;
 
   line-height: 1.2;
@@ -541,27 +529,25 @@ h2 {
 
 
 .about-chapter-teaser {
-  max-width: 30rem;
-
-  padding-top: 0;
+  min-width: 0;
+  padding-bottom: 0.2rem;
 
   font-family: var(--font-sans);
-  font-size: 0.92rem;
+  font-size: 0.84rem;
   font-weight: 400;
 
-  line-height: 1.65;
+  line-height: 1.5;
 
-  opacity: 0.8;
+  color: var(--navy);
 }
 
 
 .about-chapter-chevron {
   display: flex;
-
   align-items: center;
   justify-content: flex-end;
 
-  padding-top: 0;
+  padding-bottom: 0.4rem;
 
   opacity: 0.65;
 
@@ -603,11 +589,6 @@ h2 {
 }
 
 
-.about-chapter--navy .about-chapter-trigger:focus-visible {
-  outline-color: var(--background);
-}
-
-
 @media (hover: hover) {
 
   .about-chapter-trigger:hover .about-chapter-title {
@@ -644,14 +625,7 @@ h2 {
 
 
 .about-chapter-panel-inner {
-  display: grid;
-
-  grid-template-columns:
-    minmax(5.5rem, 0.55fr) minmax(11rem, 0.95fr) minmax(15rem, 1.35fr) 1.25rem;
-
-  gap: clamp(1rem, 2.5vw, 2rem);
-
-  padding: var(--expanded-content-gap) 1.75rem clamp(2.5rem, 4vw, 3.5rem);
+  padding: var(--expanded-content-gap) 0 0;
 
   opacity: 0;
   transform: translateY(-6px);
@@ -670,11 +644,10 @@ h2 {
 }
 
 .about-chapter-copy {
-  grid-column: 2 / 4;
+  width: 100%;
+  max-width: 42rem;
 
-  justify-self: end;
-
-  width: min(100%, 42rem);
+  color: var(--text);
 }
 
 .about-chapter-copy h3 {
@@ -712,11 +685,53 @@ h2 {
 
 @media (prefers-reduced-motion: reduce) {
 
+  html {
+    scroll-behavior: auto;
+  }
+
   .about-chapter-panel,
   .about-chapter-panel-inner,
   .about-chapter-title,
   .about-chapter-chevron {
     transition: none;
+  }
+
+}
+
+
+@media (max-width: 52rem) {
+
+  .about-page-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-chapter-nav {
+    display: none;
+  }
+
+  .about-page-body>.about-essay {
+    grid-column: 1;
+  }
+
+  .about-chapter-trigger {
+    grid-template-columns: minmax(0, 1fr) 1.25rem;
+    grid-template-areas:
+      "meta chevron"
+      "teaser teaser";
+    gap: 0.4rem 1rem;
+  }
+
+  .about-chapter-meta {
+    grid-area: meta;
+  }
+
+  .about-chapter-teaser {
+    grid-area: teaser;
+    padding-bottom: 0;
+  }
+
+  .about-chapter-chevron {
+    grid-area: chevron;
   }
 
 }
@@ -1474,116 +1489,16 @@ h2 {
   }
 
 
-  /*
-     The dark first chapter bleeds through the page-shell
-     gutter on mobile, matching the reference treatment.
-  */
-
-
-  .about-chapter-trigger {
-    grid-template-columns:
-      2.9rem 1px minmax(0, 1fr) 1rem;
-
-    grid-template-areas:
-      "number divider meta chevron";
-
-    align-items: center;
-
-    gap: 0.9rem;
-
-    padding: 1.05rem 1.15rem;
-  }
-
-
-  .about-chapter--navy .about-chapter-trigger::before {
-    background: rgba(250, 249, 246, 0.28);
-  }
-
-
-  .about-chapter-trigger::before {
-    content: "";
-
-    grid-area: divider;
-
-    width: 1px;
-    height: 70%;
-
-    justify-self: center;
-
-    background: rgba(20, 38, 61, 0.18);
-  }
-
-  .about-chapter-number {
-    grid-area: number;
-
-    align-self: center;
-
-    font-size: 2.75rem;
-    line-height: 0.9;
-
-    letter-spacing: -0.06em;
-  }
-
-  .about-chapter-meta {
-    grid-area: meta;
-
-    align-self: center;
-  }
-
-  .about-chapter-chevron {
-    grid-area: chevron;
-
-    align-self: center;
-  }
-
-
-  .about-chapter-label {
-    margin-bottom: 0.4rem;
-
-    font-size: 0.58rem;
-
-    letter-spacing: 0.16em;
-  }
-
-
   .about-chapter-title {
-    max-width: 12ch;
-
-    font-size: clamp(1.2rem, 5.8vw, 1.45rem);
-    line-height: 1.18;
+    font-size: clamp(1.35rem, 5.8vw, 1.65rem);
   }
-
 
   .about-chapter-teaser {
-    display: none;
+    font-size: 0.84rem;
   }
-
-
-  /*
-     Long-form text gets the full mobile width rather than
-     remaining squeezed beneath the chapter-title column.
-  */
-
-  .about-chapter-panel-inner {
-    display: block;
-
-    padding: var(--expanded-content-gap) 1.15rem 2.25rem;
-  }
-
-
-  .about-chapter-copy {
-    width: 100%;
-    max-width: none;
-  }
-
 
   .about-chapter-copy p {
     margin-bottom: 1.5rem;
-  }
-
-
-  .about-chapter-copy p:last-child {
-    margin-bottom: 0;
   }
 
 
@@ -1696,7 +1611,6 @@ h2 {
     text-align: right;
   }
 
-<<<<<<< HEAD
 }
 
 
@@ -1718,6 +1632,3 @@ h2 {
   }
 
 }
-=======
-}
->>>>>>> 69514b8 (Updated Chapters 1 and 2)
