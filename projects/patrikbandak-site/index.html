@@ -387,7 +387,7 @@
            ABOUT
            ===================================================== -->
 
-      <section class="comparison-section" aria-labelledby="about-title">
+      <section class="comparison-section" aria-labelledby="about-title" data-comparison>
 
         <div class="comparison-section__heading">
 
@@ -414,19 +414,54 @@
             </p>
 
             <p>
-              On desktop and mobile, opening a chapter follows it into
-              position so the reading experience still feels deliberate
-              instead of dumping a wall of text onto the page.
+              The first version gave each chapter its own card, led by a
+              navy opener. I kept the chapter structure but removed the
+              boxes, letting the titles and taglines carry the layout.
             </p>
 
+            <p>
+              On desktop, a slim chapter list floats in the left rail and
+              highlights the section in view. Opening a chapter still
+              follows it into position on desktop and mobile.
+            </p>
+
+            <div class="comparison-controls" role="group" aria-label="Compare About page chapter designs">
+              <p class="comparison-controls__prompt">Compare versions</p>
+
+              <div class="comparison-controls__buttons">
+                <button type="button" data-comparison-target="before" aria-pressed="false">
+                  Before · Cards
+                </button>
+                <button type="button" data-comparison-target="after" aria-pressed="true">
+                  After · Chapters
+                </button>
+              </div>
+            </div>
 
             <div class="comparison-panels">
 
-              <figure class="comparison-panel">
+              <figure class="comparison-panel" data-comparison-panel="before">
+                <picture>
+                  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/site-about-before-still.webp">
+                  <img src="./assets/site-about-before-loop.webp" width="1000" height="720" loading="lazy"
+                    alt="Five About chapters shown as cards, with the first card in navy and its number set large">
+                </picture>
+                <figcaption>
+                  Before: Chapter One opens inside a navy card, pushing the
+                  remaining cards down the page.
+                </figcaption>
+              </figure>
 
-                <img src="./assets/site-about-chapters.png" width="953" height="900" loading="lazy"
-                  alt="About page with the first navy chapter expanded to reveal the beginning of the story">
-
+              <figure class="comparison-panel" data-comparison-panel="after">
+                <picture>
+                  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/site-about-after-still.webp">
+                  <img src="./assets/site-about-after-loop.webp" width="1000" height="720" loading="lazy"
+                    alt="Five unboxed chapter headings beside a left navigation rail highlighting Relentless Curiosity">
+                </picture>
+                <figcaption>
+                  After: the same chapter opens beneath an editorial heading
+                  while the left rail keeps the story in view.
+                </figcaption>
               </figure>
 
             </div>

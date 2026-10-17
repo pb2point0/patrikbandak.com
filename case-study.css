@@ -465,6 +465,10 @@
   display: none;
 }
 
+.comparison-panel picture {
+  display: block;
+}
+
 .comparison-panel img {
   width: 100%;
   height: auto;
