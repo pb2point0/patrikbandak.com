@@ -389,7 +389,7 @@ h2 {
 
 .about-chapter-nav a {
   display: block;
-  width: 100%;
+  width: fit-content;
 
   padding: 0.42rem 0 0.5rem;
   border-bottom: 1px solid transparent;
