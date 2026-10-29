@@ -422,6 +422,13 @@ h2 {
 }
 
 
+.about-prologue {
+  border-inline-start: 2px solid rgba(20, 38, 61, 0.25);
+  padding-block: 0.25rem;
+  padding-inline-start: clamp(1rem, 3vw, 1.75rem);
+}
+
+
 /* Accessible heading used for chapter semantics. */
 
 .visually-hidden {
