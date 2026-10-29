@@ -426,6 +426,13 @@ h2 {
   border-inline-start: 2px solid rgba(20, 38, 61, 0.25);
   padding-block: 0.25rem;
   padding-inline-start: clamp(1rem, 3vw, 1.75rem);
+
+  font-size: 0.84375rem;
+}
+
+
+.about-prologue p:not(:last-child) {
+  margin-bottom: 1.1rem;
 }
 
 
