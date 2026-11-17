@@ -163,22 +163,29 @@
     }
   }
 
+  function clearAboutLink() {
+    if (window.location.hash === "#big-about" ||
+        Array.from(about.querySelectorAll("[id]")).some((item) => `#${item.id}` === window.location.hash)) {
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
+  }
+
   trigger.addEventListener("click", () => {
-    if (!about.hidden) {
-      if (about.inert) return;
+    if (trigger.getAttribute("aria-expanded") === "true") {
       collapseAbout(true);
-      if (window.location.hash === "#big-about" ||
-          Array.from(about.querySelectorAll("[id]")).some((item) => `#${item.id}` === window.location.hash)) {
-        history.replaceState(null, "", window.location.pathname + window.location.search);
-      }
-    } else if (!invitation.hidden) {
       collapseInvitation();
+      clearAboutLink();
     } else {
       revealInvitation();
     }
   });
 
   openButton.addEventListener("click", () => {
+    if (openButton.getAttribute("aria-expanded") === "true") {
+      collapseAbout(true);
+      clearAboutLink();
+      return;
+    }
     revealAbout(true);
     if (window.location.hash !== "#big-about") {
       history.pushState(null, "", "#big-about");
