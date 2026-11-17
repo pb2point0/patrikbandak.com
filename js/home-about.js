@@ -7,65 +7,107 @@
   if (!trigger || !invitation || !openButton || !about) return;
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const discovery = trigger.closest(".home-about-discovery");
   const fadeDuration = 900;
+  const entranceDuration = 2600;
   let aboutAnimation = null;
+  let aboutOpacityAnimation = null;
   let invitationAnimation = null;
 
-  function revealInvitation() {
-    invitationAnimation?.cancel();
-    invitationAnimation = null;
-    invitation.hidden = false;
-    invitation.inert = false;
-    trigger.setAttribute("aria-expanded", "true");
+  function stopAboutAnimation() {
+    aboutAnimation?.cancel();
+    aboutOpacityAnimation?.cancel();
+    aboutAnimation = null;
+    aboutOpacityAnimation = null;
+    about.classList.remove("is-animating");
   }
 
-  function collapseInvitation() {
-    if (invitationAnimation) return;
-
-    trigger.setAttribute("aria-expanded", "false");
-    invitation.inert = true;
-    if (invitation.contains(document.activeElement)) {
-      trigger.focus({ preventScroll: true });
-    }
+  function animateInvitation(keyframes, onFinish) {
+    invitationAnimation?.cancel();
+    invitationAnimation = null;
     if (reduceMotion.matches) {
-      invitation.hidden = true;
+      onFinish?.();
       return;
     }
 
-    const style = getComputedStyle(invitation);
-    const animation = invitation.animate([
-      { opacity: style.opacity, transform: style.transform },
-      { opacity: 0, transform: "translateY(-0.35rem)" }
-    ], { duration: 700, easing: "ease", fill: "forwards" });
+    const animation = invitation.animate(keyframes, {
+      duration: 1000,
+      easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+      fill: "both"
+    });
     invitationAnimation = animation;
     animation.onfinish = () => {
       if (invitationAnimation !== animation) return;
-      invitation.hidden = true;
+      onFinish?.();
       animation.cancel();
       invitationAnimation = null;
     };
   }
 
-  function fadeAbout(from, to, onFinish) {
-    aboutAnimation?.cancel();
-    aboutAnimation = null;
+  function revealInvitation() {
+    if (!invitation.hidden && !invitation.inert) return;
+    const opacity = invitation.hidden ? 0 : getComputedStyle(invitation).opacity;
+    const transform = invitation.hidden ? "translateY(0)" : getComputedStyle(invitation).transform;
+    invitation.hidden = false;
+    invitation.inert = false;
+    trigger.setAttribute("aria-expanded", "true");
+    discovery.classList.add("is-expanded");
+    animateInvitation([
+      { opacity, transform },
+      { opacity: 1, transform: "translateY(0.5rem)" }
+    ]);
+  }
+
+  function collapseInvitation() {
+    if (invitation.inert) return;
+
+    trigger.setAttribute("aria-expanded", "false");
+    discovery.classList.remove("is-expanded");
+    invitation.inert = true;
+    if (invitation.contains(document.activeElement)) {
+      trigger.focus({ preventScroll: true });
+    }
+    const style = getComputedStyle(invitation);
+    animateInvitation([
+      { opacity: style.opacity, transform: style.transform },
+      { opacity: 0, transform: "translateY(0)" }
+    ], () => {
+      invitation.hidden = true;
+    });
+  }
+
+  function fadeAbout(from, to, fromHeight, toHeight, onFinish) {
+    stopAboutAnimation();
 
     if (reduceMotion.matches) {
       onFinish?.();
       return;
     }
 
-    const animation = about.animate([{ opacity: from }, { opacity: to }], {
-      duration: fadeDuration,
-      easing: "ease",
-      fill: "forwards"
+    const opening = to === 1;
+    about.classList.add("is-animating");
+    const animation = about.animate([
+      { height: `${fromHeight}px` },
+      { height: `${toHeight}px` }
+    ], {
+      duration: opening ? entranceDuration : fadeDuration,
+      easing: opening ? "cubic-bezier(0.4, 0, 0.2, 1)" : "ease",
+      fill: "both"
+    });
+    aboutOpacityAnimation = about.animate([
+      { opacity: from },
+      { opacity: to }
+    ], {
+      duration: opening ? 2200 : fadeDuration,
+      delay: opening && from === 0 ? 250 : 0,
+      easing: "ease-in-out",
+      fill: "both"
     });
     aboutAnimation = animation;
     animation.onfinish = () => {
       if (aboutAnimation !== animation) return;
       onFinish?.();
-      animation.cancel();
-      aboutAnimation = null;
+      stopAboutAnimation();
     };
   }
 
@@ -78,8 +120,8 @@
 
     function followPointer(event) {
       const bounds = button.getBoundingClientRect();
-      button.style.setProperty("--pointer-x", `${event.clientX - bounds.left}px`);
-      button.style.setProperty("--pointer-y", `${event.clientY - bounds.top}px`);
+      const position = Math.max(0, Math.min(1, (event.clientX - bounds.left) / bounds.width));
+      button.style.setProperty("--shimmer-position", `${75 - position * 50}%`);
     }
 
     button.addEventListener("pointerenter", followPointer);
@@ -88,17 +130,16 @@
 
   function revealAbout(animate = false) {
     const opacity = about.hidden ? 0 : Number(getComputedStyle(about).opacity);
+    const height = about.hidden ? 0 : about.getBoundingClientRect().height;
+    stopAboutAnimation();
     revealInvitation();
     openButton.setAttribute("aria-expanded", "true");
     about.hidden = false;
     about.inert = false;
-    if (animate) {
-      fadeAbout(opacity, 1);
-    } else {
-      aboutAnimation?.cancel();
-      aboutAnimation = null;
-    }
     document.querySelector(".home-shell").classList.add("has-about");
+    if (animate) {
+      fadeAbout(opacity, 1, height, about.getBoundingClientRect().height);
+    }
   }
 
   function collapseAbout(animate = false) {
@@ -109,15 +150,15 @@
       trigger.focus({ preventScroll: true });
     }
     about.inert = true;
+    document.querySelector(".home-shell").classList.remove("has-about");
 
     if (animate) {
-      fadeAbout(Number(getComputedStyle(about).opacity), 0, () => {
+      fadeAbout(Number(getComputedStyle(about).opacity), 0, about.getBoundingClientRect().height, 0, () => {
         about.hidden = true;
       });
       window.scrollTo({ top: 0, behavior: reduceMotion.matches ? "instant" : "smooth" });
     } else {
-      aboutAnimation?.cancel();
-      aboutAnimation = null;
+      stopAboutAnimation();
       about.hidden = true;
     }
   }
