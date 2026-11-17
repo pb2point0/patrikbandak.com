@@ -339,17 +339,111 @@ h2 {
   line-height: 1.1;
 }
 
+.home-about-discovery {
+  margin-bottom: 1.25rem;
+}
+
+.home-about-discovery .eyebrow {
+  position: relative;
+  display: block;
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  line-height: inherit;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+}
+
+.home-about-shimmer {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle 2rem at var(--pointer-x, 50%) var(--pointer-y, 50%),
+    #577896,
+    #3c5873 40%,
+    transparent 80%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 350ms ease;
+}
+
+.home-about-discovery .eyebrow:hover .home-about-shimmer,
+.home-about-discovery .eyebrow:focus-visible .home-about-shimmer {
+  opacity: 1;
+}
+
+.home-about-invitation {
+  padding-top: 0.75rem;
+  animation: home-about-invitation-in 700ms var(--motion-ease-out) both;
+}
+
+.home-about-trigger:active,
+.home-about-open:active {
+  transform: translateY(1px);
+}
+
+.home-shell.has-about .home-main {
+  display: block;
+}
+
+.home-about {
+  padding-bottom: clamp(4.5rem, 9vw, 7.5rem);
+  scroll-margin-top: 2rem;
+}
+
+.home-about[hidden] {
+  display: none;
+}
+
+@keyframes home-about-invitation-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.35rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-about-shimmer {
+    transition: none;
+  }
+
+  .home-about-invitation {
+    animation: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .home-about-shimmer {
+    display: none;
+  }
+}
+
 
 /* =========================================================
    ABOUT
    ========================================================= */
 
-.about-heading h1 {
+.about-heading :is(h1, h2) {
   grid-column: 1;
 
   margin-left: 0;
 
   max-width: none;
+  margin-bottom: 0;
 
   font-size: clamp(1.85rem, 9vw, 2.5rem);
   line-height: 1.05;
@@ -664,7 +758,7 @@ h2 {
   color: var(--text);
 }
 
-.about-chapter-copy h3 {
+.about-chapter-copy :is(h3, h4) {
   margin: 2rem 0 0.85rem;
 
   color: var(--navy);
@@ -678,7 +772,7 @@ h2 {
   text-transform: uppercase;
 }
 
-.about-chapter-copy h3:first-child {
+.about-chapter-copy :is(h3, h4):first-child {
   margin-top: 0.25rem;
 }
 
@@ -1568,7 +1662,7 @@ h2 {
     padding: 4.75rem 0 3.5rem;
   }
 
-  .home-intro .eyebrow {
+  .home-about-discovery {
     margin-bottom: 1.75rem;
   }
 
@@ -1609,7 +1703,7 @@ h2 {
      ABOUT
      ========================================================= */
 
-  .about-heading h1 {
+  .about-heading :is(h1, h2) {
     grid-column: 1;
 
     margin-left: 0;
@@ -1762,7 +1856,7 @@ h2 {
     white-space: normal;
   }
 
-  .about-heading h1 {
+  .about-heading :is(h1, h2) {
     white-space: normal;
   }
 
